@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BibliotecaCrud.Properties
+namespace Biblioteca.Properties
 {
 
 
