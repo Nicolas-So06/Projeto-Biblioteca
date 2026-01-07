@@ -20,17 +20,7 @@ namespace Biblioteca
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                Conexao.ObterConexao();
 
-                MessageBox.Show("Conexão com o Banco estabelecida com sucesso!");
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao conectar no banco: " + ex.Message);
-            }
         }
     }
 }
