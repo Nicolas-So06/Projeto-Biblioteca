@@ -37,5 +37,21 @@ namespace Biblioteca.Data
 
             return listaDeLivros;
         }
+
+        public void Cadastrar(Livro livro)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao) VALUES (@titulo, @autor, @ano)";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@titulo", livro.Titulo);
+                comando.Parameters.AddWithValue("@autor", livro.Autor);
+                comando.Parameters.AddWithValue("@ano", livro.AnoPublicacao);
+
+                comando.ExecuteNonQuery();
+            }
+        }
     }
 }
