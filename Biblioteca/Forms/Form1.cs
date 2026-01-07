@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Biblioteca.Data; 
+using Biblioteca.Data;
+using Biblioteca.Models;
 
 namespace Biblioteca
 {
@@ -16,11 +11,21 @@ namespace Biblioteca
         public Form1()
         {
             InitializeComponent();
+
+            CarregarTabela();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+        private void CarregarTabela()
+        {
+            AcessoLivros acesso = new AcessoLivros();
+
+            List<Livro> lista = acesso.ListarTodos();
+
+            dgvLivros.DataSource = lista;
         }
     }
 }
