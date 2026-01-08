@@ -68,5 +68,24 @@ namespace Biblioteca.Data
                 }
             }
         }
+
+        public void Editar(Livro livro)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "UPDATE Livros SET Titulo = @Titulo, Autor = @Autor, AnoPublicacao = @Ano WHERE Id = @Id";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Titulo", livro.Titulo);
+                    comando.Parameters.AddWithValue("@Autor", livro.Autor);
+                    comando.Parameters.AddWithValue("@Ano", livro.AnoPublicacao);
+
+                    comando.Parameters.AddWithValue("@Id", livro.Id);
+
+                    comando.ExecuteNonQuery(); 
+                }
+            }
+        }
     }
 }

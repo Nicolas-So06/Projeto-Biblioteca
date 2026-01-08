@@ -52,6 +52,7 @@
             this.dgvLivros.Name = "dgvLivros";
             this.dgvLivros.Size = new System.Drawing.Size(837, 368);
             this.dgvLivros.TabIndex = 0;
+            this.dgvLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLivros_CellClick);
             // 
             // btnAdicionar
             // 

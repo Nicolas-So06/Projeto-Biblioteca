@@ -8,6 +8,8 @@ namespace Biblioteca
 {
     public partial class Form1 : Form
     {
+        int idSelecionado = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -48,23 +50,34 @@ namespace Biblioteca
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Livro novoLivro = new Livro();
-
-            novoLivro.Titulo = txtTitulo.Text;
-            novoLivro.Autor = txtAutor.Text;
-
-            novoLivro.AnoPublicacao = (int)numAno.Value;
+            Livro livro = new Livro();
+            livro.Titulo = txtTitulo.Text;
+            livro.Autor = txtAutor.Text;
+            livro.AnoPublicacao = (int)numAno.Value;
 
             AcessoLivros acesso = new AcessoLivros();
-            acesso.Cadastrar(novoLivro);
+
+            if (idSelecionado == 0)
+            {
+                acesso.Cadastrar(livro);
+                MessageBox.Show("Livro cadastrado com sucesso!");
+            }
+            else
+            {
+
+                livro.Id = idSelecionado; 
+
+                acesso.Editar(livro); 
+                MessageBox.Show("Livro editado com sucesso!");
+
+                idSelecionado = 0;
+            }
 
             CarregarTabela();
 
             txtTitulo.Text = "";
             txtAutor.Text = "";
             numAno.Value = DateTime.Now.Year;
-
-            MessageBox.Show("Livro salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -83,6 +96,21 @@ namespace Biblioteca
             else
             {
                 MessageBox.Show("Selecione um livro para excluir.");
+            }
+        }
+
+        private void dgvLivros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvLivros.SelectedRows.Count > 0)
+            {
+                DataGridViewRow linha = dgvLivros.Rows[e.RowIndex];
+
+                txtTitulo.Text = linha.Cells["Titulo"].Value.ToString();
+                txtAutor.Text = linha.Cells["Autor"].Value.ToString();
+
+                numAno.Value = Convert.ToDecimal(linha.Cells["AnoPublicacao"].Value);
+
+                idSelecionado = Convert.ToInt32(linha.Cells["Id"].Value);
             }
         }
     }
