@@ -38,19 +38,34 @@ namespace Biblioteca.Data
             return listaDeLivros;
         }
 
+
         public void Cadastrar(Livro livro)
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
                 string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao, QuantidadeDisponivel, QuantidadeTotal) VALUES (@titulo, @autor, @ano, 1, 1)";
 
-                SqlCommand comando = new SqlCommand(sql, conexao);
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@titulo", livro.Titulo);
+                    comando.Parameters.AddWithValue("@autor", livro.Autor);
+                    comando.Parameters.AddWithValue("@ano", livro.AnoPublicacao);
+                    comando.ExecuteNonQuery();
+                } 
+            }
+        }
 
-                comando.Parameters.AddWithValue("@titulo", livro.Titulo);
-                comando.Parameters.AddWithValue("@autor", livro.Autor);
-                comando.Parameters.AddWithValue("@ano", livro.AnoPublicacao);
+        public void Remover(int idLivro)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "DELETE FROM Livros WHERE Id = @Id";
 
-                comando.ExecuteNonQuery();
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Id", idLivro);
+                    comando.ExecuteNonQuery();
+                }
             }
         }
     }

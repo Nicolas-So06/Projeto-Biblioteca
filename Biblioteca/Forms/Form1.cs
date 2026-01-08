@@ -60,11 +60,30 @@ namespace Biblioteca
 
             CarregarTabela();
 
-            lblTitulo.Text = "";
-            lblAutor.Text = "";
+            txtTitulo.Text = "";
+            txtAutor.Text = "";
             numAno.Value = DateTime.Now.Year;
 
             MessageBox.Show("Livro salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (dgvLivros.SelectedRows.Count > 0)
+            {
+                int idParaApagar = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["Id"].Value);
+
+                AcessoLivros acesso = new AcessoLivros();
+                acesso.Remover(idParaApagar);
+
+                CarregarTabela(); 
+
+                MessageBox.Show("Livro removido com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Selecione um livro para excluir.");
+            }
         }
     }
 }
