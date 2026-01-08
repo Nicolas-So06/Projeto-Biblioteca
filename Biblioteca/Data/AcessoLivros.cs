@@ -42,7 +42,7 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao) VALUES (@titulo, @autor, @ano)";
+                string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao, QuantidadeDisponivel, QuantidadeTotal) VALUES (@titulo, @autor, @ano, 1, 1)";
 
                 SqlCommand comando = new SqlCommand(sql, conexao);
 
