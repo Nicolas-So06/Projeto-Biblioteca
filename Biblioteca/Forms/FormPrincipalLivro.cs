@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Biblioteca.Data;
+using Biblioteca.Forms;
 using Biblioteca.Models;
 
 namespace Biblioteca
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipalLivro : Form
     {
         int idSelecionado = 0;
 
-        public Form1()
+        public FormPrincipalLivro()
         {
             InitializeComponent();
 
@@ -112,6 +113,15 @@ namespace Biblioteca
 
                 idSelecionado = Convert.ToInt32(linha.Cells["Id"].Value);
             }
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            FormCadastroLivro telaCadastro = new FormCadastroLivro();
+
+            telaCadastro.ShowDialog();
+
+            CarregarTabela();
         }
     }
 }

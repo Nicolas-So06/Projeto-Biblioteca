@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca
 {
-    partial class Form1
+    partial class FormPrincipalLivro
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -40,6 +40,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivros)).BeginInit();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
@@ -62,6 +63,7 @@
             this.btnAdicionar.TabIndex = 1;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // GroupBox1
             // 
@@ -175,7 +177,7 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Form1
+            // FormPrincipalLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -185,7 +187,7 @@
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.dgvLivros);
-            this.Name = "Form1";
+            this.Name = "FormPrincipalLivro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Biblioteca";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -211,6 +213,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.NumericUpDown numAno;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }
 
