@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="Data\AcessoLivros.cs" />
     <Compile Include="Data\Conexao.cs" />
+    <Compile Include="Forms\FormPrincipalBiblioteca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPrincipalBiblioteca.Designer.cs">
+      <DependentUpon>FormPrincipalBiblioteca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPrincipalLivro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,10 +68,14 @@
       <DependentUpon>FormCadastroLivro.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Livro.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FormCadastroLivro.resx">
       <DependentUpon>FormCadastroLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPrincipalBiblioteca.resx">
+      <DependentUpon>FormPrincipalBiblioteca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipalLivro.resx">
       <DependentUpon>FormPrincipalLivro.cs</DependentUpon>

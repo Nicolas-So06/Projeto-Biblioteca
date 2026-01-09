@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.numQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.lblQuantidade = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.numAno = new System.Windows.Forms.NumericUpDown();
             this.txtAutor = new System.Windows.Forms.TextBox();
@@ -36,11 +38,10 @@
             this.lblAno = new System.Windows.Forms.Label();
             this.lblAutor = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.numQuantidade = new System.Windows.Forms.NumericUpDown();
-            this.lblQuantidade = new System.Windows.Forms.Label();
+            this.btnVoltarCadastroLivro_Click = new System.Windows.Forms.Button();
             this.GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox1
@@ -54,12 +55,45 @@
             this.GroupBox1.Controls.Add(this.lblAno);
             this.GroupBox1.Controls.Add(this.lblAutor);
             this.GroupBox1.Controls.Add(this.lblTitulo);
+            this.GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox1.Location = new System.Drawing.Point(36, 25);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Size = new System.Drawing.Size(832, 181);
             this.GroupBox1.TabIndex = 5;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Novo Livro";
+            // 
+            // numQuantidade
+            // 
+            this.numQuantidade.Location = new System.Drawing.Point(387, 135);
+            this.numQuantidade.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numQuantidade.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numQuantidade.Name = "numQuantidade";
+            this.numQuantidade.Size = new System.Drawing.Size(97, 22);
+            this.numQuantidade.TabIndex = 8;
+            this.numQuantidade.Tag = "";
+            this.numQuantidade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblQuantidade
+            // 
+            this.lblQuantidade.AutoSize = true;
+            this.lblQuantidade.Location = new System.Drawing.Point(288, 135);
+            this.lblQuantidade.Name = "lblQuantidade";
+            this.lblQuantidade.Size = new System.Drawing.Size(80, 16);
+            this.lblQuantidade.TabIndex = 7;
+            this.lblQuantidade.Text = "Quantidade:";
             // 
             // btnCadastrar
             // 
@@ -80,12 +114,12 @@
             0,
             0});
             this.numAno.Minimum = new decimal(new int[] {
-            1000,
+            1500,
             0,
             0,
-            0});
+            -2147483648});
             this.numAno.Name = "numAno";
-            this.numAno.Size = new System.Drawing.Size(97, 20);
+            this.numAno.Size = new System.Drawing.Size(97, 22);
             this.numAno.TabIndex = 6;
             this.numAno.Tag = "";
             this.numAno.Value = new decimal(new int[] {
@@ -98,14 +132,14 @@
             // 
             this.txtAutor.Location = new System.Drawing.Point(97, 86);
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(692, 20);
+            this.txtAutor.Size = new System.Drawing.Size(692, 22);
             this.txtAutor.TabIndex = 5;
             // 
             // txtTitulo
             // 
             this.txtTitulo.Location = new System.Drawing.Point(97, 43);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(692, 20);
+            this.txtTitulo.Size = new System.Drawing.Size(692, 22);
             this.txtTitulo.TabIndex = 4;
             // 
             // lblAno
@@ -113,7 +147,7 @@
             this.lblAno.AutoSize = true;
             this.lblAno.Location = new System.Drawing.Point(19, 135);
             this.lblAno.Name = "lblAno";
-            this.lblAno.Size = new System.Drawing.Size(29, 13);
+            this.lblAno.Size = new System.Drawing.Size(34, 16);
             this.lblAno.TabIndex = 2;
             this.lblAno.Text = "Ano:";
             // 
@@ -122,7 +156,7 @@
             this.lblAutor.AutoSize = true;
             this.lblAutor.Location = new System.Drawing.Point(19, 86);
             this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(35, 13);
+            this.lblAutor.Size = new System.Drawing.Size(41, 16);
             this.lblAutor.TabIndex = 1;
             this.lblAutor.Text = "Autor:";
             // 
@@ -131,54 +165,35 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Location = new System.Drawing.Point(19, 46);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(36, 13);
+            this.lblTitulo.Size = new System.Drawing.Size(43, 16);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Titulo:";
             // 
-            // numQuantidade
+            // btnVoltarCadastroLivro_Click
             // 
-            this.numQuantidade.Location = new System.Drawing.Point(387, 135);
-            this.numQuantidade.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numQuantidade.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQuantidade.Name = "numQuantidade";
-            this.numQuantidade.Size = new System.Drawing.Size(97, 20);
-            this.numQuantidade.TabIndex = 8;
-            this.numQuantidade.Tag = "";
-            this.numQuantidade.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblQuantidade
-            // 
-            this.lblQuantidade.AutoSize = true;
-            this.lblQuantidade.Location = new System.Drawing.Point(288, 135);
-            this.lblQuantidade.Name = "lblQuantidade";
-            this.lblQuantidade.Size = new System.Drawing.Size(65, 13);
-            this.lblQuantidade.TabIndex = 7;
-            this.lblQuantidade.Text = "Quantidade:";
+            this.btnVoltarCadastroLivro_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltarCadastroLivro_Click.Location = new System.Drawing.Point(761, 232);
+            this.btnVoltarCadastroLivro_Click.Name = "btnVoltarCadastroLivro_Click";
+            this.btnVoltarCadastroLivro_Click.Size = new System.Drawing.Size(107, 31);
+            this.btnVoltarCadastroLivro_Click.TabIndex = 8;
+            this.btnVoltarCadastroLivro_Click.Text = "Voltar";
+            this.btnVoltarCadastroLivro_Click.UseVisualStyleBackColor = true;
+            this.btnVoltarCadastroLivro_Click.Click += new System.EventHandler(this.btnVoltarCadastroLivro_Click_Click);
             // 
             // FormCadastroLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 226);
+            this.ClientSize = new System.Drawing.Size(911, 275);
+            this.Controls.Add(this.btnVoltarCadastroLivro_Click);
             this.Controls.Add(this.GroupBox1);
             this.Name = "FormCadastroLivro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastroLivro";
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAno)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -195,5 +210,6 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.NumericUpDown numQuantidade;
         private System.Windows.Forms.Label lblQuantidade;
+        private System.Windows.Forms.Button btnVoltarCadastroLivro_Click;
     }
 }

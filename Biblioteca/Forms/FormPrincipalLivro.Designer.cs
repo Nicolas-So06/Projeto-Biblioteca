@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvLivros = new System.Windows.Forms.DataGridView();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
@@ -40,6 +41,8 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnVoltarLivro_Click = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivros)).BeginInit();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
@@ -56,6 +59,7 @@
             // 
             // btnAdicionar
             // 
+            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.Location = new System.Drawing.Point(28, 27);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(343, 72);
@@ -73,6 +77,7 @@
             this.GroupBox1.Controls.Add(this.lblAno);
             this.GroupBox1.Controls.Add(this.lblAutor);
             this.GroupBox1.Controls.Add(this.lblTitulo);
+            this.GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox1.Location = new System.Drawing.Point(28, 115);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Size = new System.Drawing.Size(837, 182);
@@ -82,6 +87,7 @@
             // 
             // numAno
             // 
+            this.numAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numAno.Location = new System.Drawing.Point(97, 135);
             this.numAno.Maximum = new decimal(new int[] {
             2100,
@@ -89,12 +95,12 @@
             0,
             0});
             this.numAno.Minimum = new decimal(new int[] {
-            1000,
+            1500,
             0,
             0,
-            0});
+            -2147483648});
             this.numAno.Name = "numAno";
-            this.numAno.Size = new System.Drawing.Size(97, 20);
+            this.numAno.Size = new System.Drawing.Size(97, 22);
             this.numAno.TabIndex = 6;
             this.numAno.Tag = "";
             this.numAno.Value = new decimal(new int[] {
@@ -107,18 +113,19 @@
             // 
             this.txtAutor.Location = new System.Drawing.Point(97, 86);
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(692, 20);
+            this.txtAutor.Size = new System.Drawing.Size(692, 22);
             this.txtAutor.TabIndex = 5;
             // 
             // txtTitulo
             // 
             this.txtTitulo.Location = new System.Drawing.Point(97, 43);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(692, 20);
+            this.txtTitulo.Size = new System.Drawing.Size(692, 22);
             this.txtTitulo.TabIndex = 4;
             // 
             // btnSalvar
             // 
+            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.Location = new System.Drawing.Point(593, 135);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(196, 31);
@@ -130,32 +137,36 @@
             // lblAno
             // 
             this.lblAno.AutoSize = true;
+            this.lblAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAno.Location = new System.Drawing.Point(19, 135);
             this.lblAno.Name = "lblAno";
-            this.lblAno.Size = new System.Drawing.Size(29, 13);
+            this.lblAno.Size = new System.Drawing.Size(34, 16);
             this.lblAno.TabIndex = 2;
             this.lblAno.Text = "Ano:";
             // 
             // lblAutor
             // 
             this.lblAutor.AutoSize = true;
+            this.lblAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAutor.Location = new System.Drawing.Point(19, 86);
             this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(35, 13);
+            this.lblAutor.Size = new System.Drawing.Size(41, 16);
             this.lblAutor.TabIndex = 1;
             this.lblAutor.Text = "Autor:";
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(19, 46);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(36, 13);
+            this.lblTitulo.Size = new System.Drawing.Size(43, 16);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Titulo:";
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(523, 27);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(342, 72);
@@ -164,11 +175,29 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluirLivro_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(100, 100);
+            this.imageList1.TransparentColor = System.Drawing.Color.Black;
+            // 
+            // btnVoltarLivro_Click
+            // 
+            this.btnVoltarLivro_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltarLivro_Click.Location = new System.Drawing.Point(758, 734);
+            this.btnVoltarLivro_Click.Name = "btnVoltarLivro_Click";
+            this.btnVoltarLivro_Click.Size = new System.Drawing.Size(107, 31);
+            this.btnVoltarLivro_Click.TabIndex = 7;
+            this.btnVoltarLivro_Click.Text = "Voltar";
+            this.btnVoltarLivro_Click.UseVisualStyleBackColor = true;
+            this.btnVoltarLivro_Click.Click += new System.EventHandler(this.btnVoltarLivro_Click_Click);
+            // 
             // FormPrincipalLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 708);
+            this.ClientSize = new System.Drawing.Size(906, 777);
+            this.Controls.Add(this.btnVoltarLivro_Click);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.btnAdicionar);
@@ -199,6 +228,8 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.NumericUpDown numAno;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button btnVoltarLivro_Click;
     }
 }
 

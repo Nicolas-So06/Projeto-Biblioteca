@@ -16,7 +16,7 @@ namespace Biblioteca
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipalLivro());
+            Application.Run(new Forms.FormMenuPrincipal());
         }
     }
 }
