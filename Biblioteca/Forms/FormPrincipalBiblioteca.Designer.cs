@@ -32,7 +32,7 @@
             this.btnGerenciarUsuario_Click = new System.Windows.Forms.Button();
             this.btnEmprestimo_Click = new System.Windows.Forms.Button();
             this.btnGerenciarLivro_Click = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSairSistema_Click = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -76,22 +76,23 @@
             this.btnGerenciarLivro_Click.UseVisualStyleBackColor = true;
             this.btnGerenciarLivro_Click.Click += new System.EventHandler(this.btnGerenciarLivro_Click_Click);
             // 
-            // button4
+            // btnSairSistema_Click
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(327, 431);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(243, 64);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Sair do Sistema";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSairSistema_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSairSistema_Click.Location = new System.Drawing.Point(327, 431);
+            this.btnSairSistema_Click.Name = "btnSairSistema_Click";
+            this.btnSairSistema_Click.Size = new System.Drawing.Size(243, 64);
+            this.btnSairSistema_Click.TabIndex = 4;
+            this.btnSairSistema_Click.Text = "Sair do Sistema";
+            this.btnSairSistema_Click.UseVisualStyleBackColor = true;
+            this.btnSairSistema_Click.Click += new System.EventHandler(this.btnSairSistema_Click_Click);
             // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 541);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnSairSistema_Click);
             this.Controls.Add(this.btnGerenciarLivro_Click);
             this.Controls.Add(this.btnEmprestimo_Click);
             this.Controls.Add(this.btnGerenciarUsuario_Click);
@@ -110,6 +111,6 @@
         private System.Windows.Forms.Button btnGerenciarUsuario_Click;
         private System.Windows.Forms.Button btnEmprestimo_Click;
         private System.Windows.Forms.Button btnGerenciarLivro_Click;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSairSistema_Click;
     }
 }
