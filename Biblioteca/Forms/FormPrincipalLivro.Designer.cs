@@ -39,7 +39,6 @@
             this.lblAutor = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivros)).BeginInit();
             this.GroupBox1.SuspendLayout();
@@ -59,11 +58,11 @@
             // 
             this.btnAdicionar.Location = new System.Drawing.Point(28, 27);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(194, 44);
+            this.btnAdicionar.Size = new System.Drawing.Size(343, 72);
             this.btnAdicionar.TabIndex = 1;
-            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.Text = "Cadastrar Livro";
             this.btnAdicionar.UseVisualStyleBackColor = true;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionarLivro_Click);
             // 
             // GroupBox1
             // 
@@ -79,8 +78,7 @@
             this.GroupBox1.Size = new System.Drawing.Size(837, 182);
             this.GroupBox1.TabIndex = 4;
             this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Novo Livro";
-            this.GroupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.GroupBox1.Text = "Editar Livro";
             // 
             // numAno
             // 
@@ -127,7 +125,7 @@
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvarLivro_Click);
             // 
             // lblAno
             // 
@@ -137,7 +135,6 @@
             this.lblAno.Size = new System.Drawing.Size(29, 13);
             this.lblAno.TabIndex = 2;
             this.lblAno.Text = "Ano:";
-            this.lblAno.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblAutor
             // 
@@ -159,30 +156,19 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(671, 27);
+            this.btnExcluir.Location = new System.Drawing.Point(523, 27);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(194, 44);
+            this.btnExcluir.Size = new System.Drawing.Size(342, 72);
             this.btnExcluir.TabIndex = 5;
-            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Text = "Excluir Livro";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(353, 27);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(194, 44);
-            this.btnEditar.TabIndex = 6;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.button2_Click);
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluirLivro_Click);
             // 
             // FormPrincipalLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 708);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.btnAdicionar);
@@ -211,7 +197,6 @@
         private System.Windows.Forms.TextBox txtAutor;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.NumericUpDown numAno;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }

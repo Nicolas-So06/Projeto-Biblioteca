@@ -29,19 +29,24 @@
         private void InitializeComponent()
         {
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.numAno = new System.Windows.Forms.NumericUpDown();
             this.txtAutor = new System.Windows.Forms.TextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.lblAno = new System.Windows.Forms.Label();
             this.lblAutor = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.numQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.lblQuantidade = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.numQuantidade);
+            this.GroupBox1.Controls.Add(this.lblQuantidade);
             this.GroupBox1.Controls.Add(this.btnCadastrar);
             this.GroupBox1.Controls.Add(this.numAno);
             this.GroupBox1.Controls.Add(this.txtAutor);
@@ -55,6 +60,16 @@
             this.GroupBox1.TabIndex = 5;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Novo Livro";
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Location = new System.Drawing.Point(593, 128);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(196, 31);
+            this.btnCadastrar.TabIndex = 6;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrarLivro_Click);
             // 
             // numAno
             // 
@@ -120,15 +135,37 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Titulo:";
             // 
-            // btnCadastrar
+            // numQuantidade
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(593, 128);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(196, 31);
-            this.btnCadastrar.TabIndex = 6;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.numQuantidade.Location = new System.Drawing.Point(387, 135);
+            this.numQuantidade.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numQuantidade.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numQuantidade.Name = "numQuantidade";
+            this.numQuantidade.Size = new System.Drawing.Size(97, 20);
+            this.numQuantidade.TabIndex = 8;
+            this.numQuantidade.Tag = "";
+            this.numQuantidade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblQuantidade
+            // 
+            this.lblQuantidade.AutoSize = true;
+            this.lblQuantidade.Location = new System.Drawing.Point(288, 135);
+            this.lblQuantidade.Name = "lblQuantidade";
+            this.lblQuantidade.Size = new System.Drawing.Size(65, 13);
+            this.lblQuantidade.TabIndex = 7;
+            this.lblQuantidade.Text = "Quantidade:";
             // 
             // FormCadastroLivro
             // 
@@ -141,6 +178,7 @@
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -155,5 +193,7 @@
         private System.Windows.Forms.Label lblAutor;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.NumericUpDown numQuantidade;
+        private System.Windows.Forms.Label lblQuantidade;
     }
 }

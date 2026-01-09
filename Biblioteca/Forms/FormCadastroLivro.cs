@@ -1,13 +1,6 @@
 ﻿using Biblioteca.Data;
 using Biblioteca.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Biblioteca.Forms
@@ -20,17 +13,40 @@ namespace Biblioteca.Forms
         }
 
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnCadastrarLivro_Click(object sender, EventArgs e)
         {
-            Livro livro = new Livro();
-            livro.Titulo = txtTitulo.Text;
-            livro.Autor = txtAutor.Text;
-            livro.AnoPublicacao = (int)numAno.Value;
+            if (txtTitulo.Text == "" || txtAutor.Text == "")
+            {
+                MessageBox.Show("Por favor, preencha Título e Autor.");
+                return;
+            }
+
+            string titulo = txtTitulo.Text;
+            string autor = txtAutor.Text;
+            int ano = (int)numAno.Value;
+            int quantidade = (int)numQuantidade.Value; 
 
             AcessoLivros acesso = new AcessoLivros();
-            acesso.Cadastrar(livro);
 
-            MessageBox.Show("Livro cadastrado com sucesso!");
+            int idDoLivro = acesso.VerificarSeLivroExiste(titulo);
+
+            if (idDoLivro > 0)
+            {
+                acesso.AdicionarQuantidadeLivro(idDoLivro, quantidade);
+
+                MessageBox.Show($"O livro '{titulo}' já existia!\nEstoque atualizado com +{quantidade} unidades.");
+            }
+            else
+            {
+                Livro novoLivro = new Livro();
+                novoLivro.Titulo = titulo;
+                novoLivro.Autor = autor;
+                novoLivro.AnoPublicacao = ano;
+
+                acesso.CadastrarLivro(novoLivro, quantidade);
+
+                MessageBox.Show("Novo livro cadastrado com sucesso!");
+            }
 
             this.Close();
         }

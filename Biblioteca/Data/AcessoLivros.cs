@@ -7,7 +7,7 @@ namespace Biblioteca.Data
 {
     public class AcessoLivros
     {
-        public List<Livro> ListarTodos()
+        public List<Livro> ListarTodosLivros()
         {
             List<Livro> listaDeLivros = new List<Livro>();
 
@@ -39,23 +39,25 @@ namespace Biblioteca.Data
         }
 
 
-        public void Cadastrar(Livro livro)
+        public void CadastrarLivro(Livro livro, int quantidadeInicial)
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao, QuantidadeDisponivel, QuantidadeTotal) VALUES (@titulo, @autor, @ano, 1, 1)";
+                string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao, QuantidadeDisponivel, QuantidadeTotal) VALUES (@titulo, @autor, @ano, @Qtd, @Qtd)";
 
                 using (SqlCommand comando = new SqlCommand(sql, conexao))
                 {
                     comando.Parameters.AddWithValue("@titulo", livro.Titulo);
                     comando.Parameters.AddWithValue("@autor", livro.Autor);
                     comando.Parameters.AddWithValue("@ano", livro.AnoPublicacao);
+                    comando.Parameters.AddWithValue("@Qtd", quantidadeInicial);
+
                     comando.ExecuteNonQuery();
-                } 
+                }
             }
         }
 
-        public void Remover(int idLivro)
+        public void RemoverLivro(int idLivro)
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
@@ -69,7 +71,7 @@ namespace Biblioteca.Data
             }
         }
 
-        public void Editar(Livro livro)
+        public void EditarLivro(Livro livro)
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
@@ -84,6 +86,45 @@ namespace Biblioteca.Data
                     comando.Parameters.AddWithValue("@Id", livro.Id);
 
                     comando.ExecuteNonQuery(); 
+                }
+            }
+        }
+
+        public int VerificarSeLivroExiste(string titulo)
+        {
+            int idEncontrado = 0;
+
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+
+                string sql = "SELECT Id FROM Livros WHERE Titulo = @Titulo";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Titulo", titulo);
+
+                    object resultado = comando.ExecuteScalar();
+
+                    if (resultado != null && resultado != DBNull.Value)
+                    {
+                        idEncontrado = Convert.ToInt32(resultado);
+                    }
+                }
+            } 
+            return idEncontrado;
+        }
+
+        public void AdicionarQuantidadeLivro(int id, int quantidade)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal + @Qtd, QuantidadeDisponivel = QuantidadeDisponivel + @Qtd WHERE Id = @Id";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Id", id);
+                    comando.Parameters.AddWithValue("@Qtd", quantidade);
+                    comando.ExecuteNonQuery();
                 }
             }
         }

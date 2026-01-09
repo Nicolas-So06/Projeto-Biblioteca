@@ -29,66 +29,53 @@ namespace Biblioteca
         {
             AcessoLivros acesso = new AcessoLivros();
 
-            List<Livro> lista = acesso.ListarTodos();
+            List<Livro> lista = acesso.ListarTodosLivros();
 
             dgvLivros.DataSource = lista;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+
+        private void btnSalvarLivro_Click(object sender, EventArgs e)
         {
+            if (idSelecionado == 0)
+            {
+                MessageBox.Show("Por favor, selecione um livro na tabela para editar.");
+                return;
+            }
 
-        }
+            if (txtTitulo.Text == "" || txtAutor.Text == "")
+            {
+                MessageBox.Show("Você não pode deixar Título ou Autor em branco na edição!");
+                return; 
+            }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
             Livro livro = new Livro();
+            livro.Id = idSelecionado;
             livro.Titulo = txtTitulo.Text;
             livro.Autor = txtAutor.Text;
             livro.AnoPublicacao = (int)numAno.Value;
 
             AcessoLivros acesso = new AcessoLivros();
+            acesso.EditarLivro(livro);
 
-            if (idSelecionado == 0)
-            {
-                acesso.Cadastrar(livro);
-                MessageBox.Show("Livro cadastrado com sucesso!");
-            }
-            else
-            {
-
-                livro.Id = idSelecionado; 
-
-                acesso.Editar(livro); 
-                MessageBox.Show("Livro editado com sucesso!");
-
-                idSelecionado = 0;
-            }
+            MessageBox.Show("Edição salva com sucesso!");
 
             CarregarTabela();
 
+            idSelecionado = 0;
             txtTitulo.Text = "";
             txtAutor.Text = "";
             numAno.Value = DateTime.Now.Year;
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnExcluirLivro_Click(object sender, EventArgs e)
         {
             if (dgvLivros.SelectedRows.Count > 0)
             {
                 int idParaApagar = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["Id"].Value);
 
                 AcessoLivros acesso = new AcessoLivros();
-                acesso.Remover(idParaApagar);
+                acesso.RemoverLivro(idParaApagar);
 
                 CarregarTabela(); 
 
@@ -115,7 +102,7 @@ namespace Biblioteca
             }
         }
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void btnAdicionarLivro_Click(object sender, EventArgs e)
         {
             FormCadastroLivro telaCadastro = new FormCadastroLivro();
 
