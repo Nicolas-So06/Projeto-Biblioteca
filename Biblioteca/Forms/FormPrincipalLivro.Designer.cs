@@ -204,7 +204,7 @@
             this.Controls.Add(this.dgvLivros);
             this.Name = "FormPrincipalLivro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestão de Biblioteca";
+            this.Text = "Gerenciador de Livro";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivros)).EndInit();
             this.GroupBox1.ResumeLayout(false);

@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca.Forms
 {
-    partial class FormPrincipalUsuario
+    partial class FormCadastroUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnVoltarUsuario = new System.Windows.Forms.Button();
-            this.btnExcluirUsuario = new System.Windows.Forms.Button();
-            this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.CadastrarUsuario = new System.Windows.Forms.GroupBox();
             this.cbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.txtTelefoneUsuario = new System.Windows.Forms.MaskedTextBox();
@@ -38,58 +36,34 @@
             this.txtCpfUsuario = new System.Windows.Forms.MaskedTextBox();
             this.txtEmailUsuario = new System.Windows.Forms.TextBox();
             this.txtNomeUsuario = new System.Windows.Forms.TextBox();
-            this.btnSalvarEdicaoUsuario = new System.Windows.Forms.Button();
+            this.btnSalvarNovoUsuario = new System.Windows.Forms.Button();
             this.lblCPF = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
-            this.btnAdicionarUsuario = new System.Windows.Forms.Button();
-            this.dgvUsuario = new System.Windows.Forms.DataGridView();
-            this.GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
+            this.btnVoltarCadastroUsuario_Click = new System.Windows.Forms.Button();
+            this.CadastrarUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnVoltarUsuario
+            // CadastrarUsuario
             // 
-            this.btnVoltarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarUsuario.Location = new System.Drawing.Point(785, 719);
-            this.btnVoltarUsuario.Name = "btnVoltarUsuario";
-            this.btnVoltarUsuario.Size = new System.Drawing.Size(107, 31);
-            this.btnVoltarUsuario.TabIndex = 12;
-            this.btnVoltarUsuario.Text = "Voltar";
-            this.btnVoltarUsuario.UseVisualStyleBackColor = true;
-            this.btnVoltarUsuario.Click += new System.EventHandler(this.btnVoltarUsuario_Click);
-            // 
-            // btnExcluirUsuario
-            // 
-            this.btnExcluirUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirUsuario.Location = new System.Drawing.Point(550, 26);
-            this.btnExcluirUsuario.Name = "btnExcluirUsuario";
-            this.btnExcluirUsuario.Size = new System.Drawing.Size(342, 72);
-            this.btnExcluirUsuario.TabIndex = 11;
-            this.btnExcluirUsuario.Text = "Excluir Usuário";
-            this.btnExcluirUsuario.UseVisualStyleBackColor = true;
-            this.btnExcluirUsuario.Click += new System.EventHandler(this.btnExcluirUsuario_Click);
-            // 
-            // GroupBox1
-            // 
-            this.GroupBox1.Controls.Add(this.cbTipoUsuario);
-            this.GroupBox1.Controls.Add(this.lblTipo);
-            this.GroupBox1.Controls.Add(this.txtTelefoneUsuario);
-            this.GroupBox1.Controls.Add(this.lblTelefone);
-            this.GroupBox1.Controls.Add(this.txtCpfUsuario);
-            this.GroupBox1.Controls.Add(this.txtEmailUsuario);
-            this.GroupBox1.Controls.Add(this.txtNomeUsuario);
-            this.GroupBox1.Controls.Add(this.btnSalvarEdicaoUsuario);
-            this.GroupBox1.Controls.Add(this.lblCPF);
-            this.GroupBox1.Controls.Add(this.lblEmail);
-            this.GroupBox1.Controls.Add(this.lblNome);
-            this.GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GroupBox1.Location = new System.Drawing.Point(55, 114);
-            this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(837, 177);
-            this.GroupBox1.TabIndex = 10;
-            this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Editar Usuario";
+            this.CadastrarUsuario.Controls.Add(this.cbTipoUsuario);
+            this.CadastrarUsuario.Controls.Add(this.lblTipo);
+            this.CadastrarUsuario.Controls.Add(this.txtTelefoneUsuario);
+            this.CadastrarUsuario.Controls.Add(this.lblTelefone);
+            this.CadastrarUsuario.Controls.Add(this.txtCpfUsuario);
+            this.CadastrarUsuario.Controls.Add(this.txtEmailUsuario);
+            this.CadastrarUsuario.Controls.Add(this.txtNomeUsuario);
+            this.CadastrarUsuario.Controls.Add(this.btnSalvarNovoUsuario);
+            this.CadastrarUsuario.Controls.Add(this.lblCPF);
+            this.CadastrarUsuario.Controls.Add(this.lblEmail);
+            this.CadastrarUsuario.Controls.Add(this.lblNome);
+            this.CadastrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CadastrarUsuario.Location = new System.Drawing.Point(45, 26);
+            this.CadastrarUsuario.Name = "CadastrarUsuario";
+            this.CadastrarUsuario.Size = new System.Drawing.Size(860, 177);
+            this.CadastrarUsuario.TabIndex = 11;
+            this.CadastrarUsuario.TabStop = false;
+            this.CadastrarUsuario.Text = "Novo Usuario";
             // 
             // cbTipoUsuario
             // 
@@ -119,7 +93,7 @@
             // txtTelefoneUsuario
             // 
             this.txtTelefoneUsuario.Location = new System.Drawing.Point(97, 126);
-            this.txtTelefoneUsuario.Mask = "(99) 00000-0000";
+            this.txtTelefoneUsuario.Mask = "(00) 00000-0000";
             this.txtTelefoneUsuario.Name = "txtTelefoneUsuario";
             this.txtTelefoneUsuario.Size = new System.Drawing.Size(96, 22);
             this.txtTelefoneUsuario.TabIndex = 8;
@@ -156,16 +130,16 @@
             this.txtNomeUsuario.Size = new System.Drawing.Size(692, 22);
             this.txtNomeUsuario.TabIndex = 4;
             // 
-            // btnSalvarEdicaoUsuario
+            // btnSalvarNovoUsuario
             // 
-            this.btnSalvarEdicaoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarEdicaoUsuario.Location = new System.Drawing.Point(593, 122);
-            this.btnSalvarEdicaoUsuario.Name = "btnSalvarEdicaoUsuario";
-            this.btnSalvarEdicaoUsuario.Size = new System.Drawing.Size(196, 31);
-            this.btnSalvarEdicaoUsuario.TabIndex = 3;
-            this.btnSalvarEdicaoUsuario.Text = "Salvar";
-            this.btnSalvarEdicaoUsuario.UseVisualStyleBackColor = true;
-            this.btnSalvarEdicaoUsuario.Click += new System.EventHandler(this.btnSalvarEdicaoUsuario_Click);
+            this.btnSalvarNovoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarNovoUsuario.Location = new System.Drawing.Point(593, 122);
+            this.btnSalvarNovoUsuario.Name = "btnSalvarNovoUsuario";
+            this.btnSalvarNovoUsuario.Size = new System.Drawing.Size(196, 31);
+            this.btnSalvarNovoUsuario.TabIndex = 3;
+            this.btnSalvarNovoUsuario.Text = "Salvar";
+            this.btnSalvarNovoUsuario.UseVisualStyleBackColor = true;
+            this.btnSalvarNovoUsuario.Click += new System.EventHandler(this.btnSalvarNovoUsuario_Click);
             // 
             // lblCPF
             // 
@@ -197,64 +171,48 @@
             this.lblNome.TabIndex = 0;
             this.lblNome.Text = "Nome:";
             // 
-            // btnAdicionarUsuario
+            // btnVoltarCadastroUsuario_Click
             // 
-            this.btnAdicionarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionarUsuario.Location = new System.Drawing.Point(55, 26);
-            this.btnAdicionarUsuario.Name = "btnAdicionarUsuario";
-            this.btnAdicionarUsuario.Size = new System.Drawing.Size(343, 72);
-            this.btnAdicionarUsuario.TabIndex = 9;
-            this.btnAdicionarUsuario.Text = "Cadastrar Usuário";
-            this.btnAdicionarUsuario.UseVisualStyleBackColor = true;
-            this.btnAdicionarUsuario.Click += new System.EventHandler(this.btnAdicionarUsuario_Click);
+            this.btnVoltarCadastroUsuario_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltarCadastroUsuario_Click.Location = new System.Drawing.Point(775, 218);
+            this.btnVoltarCadastroUsuario_Click.Name = "btnVoltarCadastroUsuario_Click";
+            this.btnVoltarCadastroUsuario_Click.Size = new System.Drawing.Size(130, 31);
+            this.btnVoltarCadastroUsuario_Click.TabIndex = 12;
+            this.btnVoltarCadastroUsuario_Click.Text = "Voltar";
+            this.btnVoltarCadastroUsuario_Click.UseVisualStyleBackColor = true;
+            this.btnVoltarCadastroUsuario_Click.Click += new System.EventHandler(this.btnVoltarCadastroUsuario_Click_Click);
             // 
-            // dgvUsuario
-            // 
-            this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuario.Location = new System.Drawing.Point(55, 325);
-            this.dgvUsuario.Name = "dgvUsuario";
-            this.dgvUsuario.Size = new System.Drawing.Size(837, 368);
-            this.dgvUsuario.TabIndex = 8;
-            this.dgvUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellClick);
-            // 
-            // FormPrincipalUsuario
+            // FormCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 785);
-            this.Controls.Add(this.btnVoltarUsuario);
-            this.Controls.Add(this.btnExcluirUsuario);
-            this.Controls.Add(this.GroupBox1);
-            this.Controls.Add(this.btnAdicionarUsuario);
-            this.Controls.Add(this.dgvUsuario);
-            this.Name = "FormPrincipalUsuario";
+            this.ClientSize = new System.Drawing.Size(953, 261);
+            this.Controls.Add(this.btnVoltarCadastroUsuario_Click);
+            this.Controls.Add(this.CadastrarUsuario);
+            this.Name = "FormCadastroUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gerenciador de Usuários";
-            this.Load += new System.EventHandler(this.FormPrincipalUsuario_Load);
-            this.GroupBox1.ResumeLayout(false);
-            this.GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).EndInit();
+            this.Text = "FormCadastroUsuario";
+            this.Load += new System.EventHandler(this.FormCadastroUsuario_Load);
+            this.CadastrarUsuario.ResumeLayout(false);
+            this.CadastrarUsuario.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnVoltarUsuario;
-        private System.Windows.Forms.Button btnExcluirUsuario;
-        private System.Windows.Forms.GroupBox GroupBox1;
+        private System.Windows.Forms.GroupBox CadastrarUsuario;
+        private System.Windows.Forms.ComboBox cbTipoUsuario;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.MaskedTextBox txtTelefoneUsuario;
+        private System.Windows.Forms.Label lblTelefone;
+        private System.Windows.Forms.MaskedTextBox txtCpfUsuario;
         private System.Windows.Forms.TextBox txtEmailUsuario;
         private System.Windows.Forms.TextBox txtNomeUsuario;
-        private System.Windows.Forms.Button btnSalvarEdicaoUsuario;
+        private System.Windows.Forms.Button btnSalvarNovoUsuario;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Button btnAdicionarUsuario;
-        private System.Windows.Forms.DataGridView dgvUsuario;
-        private System.Windows.Forms.Label lblTelefone;
-        private System.Windows.Forms.MaskedTextBox txtCpfUsuario;
-        private System.Windows.Forms.Label lblTipo;
-        private System.Windows.Forms.MaskedTextBox txtTelefoneUsuario;
-        private System.Windows.Forms.ComboBox cbTipoUsuario;
+        private System.Windows.Forms.Button btnVoltarCadastroUsuario_Click;
     }
 }

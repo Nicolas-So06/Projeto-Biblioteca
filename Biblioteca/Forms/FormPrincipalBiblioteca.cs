@@ -17,16 +17,28 @@ namespace Biblioteca.Forms
             InitializeComponent();
         }
 
-        private void btnGerenciarLivro_Click_Click(object sender, EventArgs e)
+        private void FormMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSairSistema_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnGerenciarLivro_Click(object sender, EventArgs e)
         {
             FormPrincipalLivro telaLivro = new FormPrincipalLivro();
 
             telaLivro.ShowDialog();
         }
 
-        private void btnSairSistema_Click_Click(object sender, EventArgs e)
+        private void btnGerenciarUsuario_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormPrincipalUsuario telaUsuario = new FormPrincipalUsuario();
+
+            telaUsuario.ShowDialog();
         }
     }
 }

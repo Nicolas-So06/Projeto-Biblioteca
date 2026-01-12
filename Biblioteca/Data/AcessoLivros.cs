@@ -15,6 +15,7 @@ namespace Biblioteca.Data
             {
 
                 string sql = "SELECT * FROM Livros";
+
                 SqlCommand comando = new SqlCommand(sql, conexao);
 
                 using (SqlDataReader leitor = comando.ExecuteReader())

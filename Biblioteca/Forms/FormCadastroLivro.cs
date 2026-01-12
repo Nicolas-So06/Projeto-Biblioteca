@@ -51,9 +51,14 @@ namespace Biblioteca.Forms
             this.Close();
         }
 
-        private void btnVoltarCadastroLivro_Click_Click(object sender, EventArgs e)
+        private void btnVoltarCadastroLivro_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormCadastroLivro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

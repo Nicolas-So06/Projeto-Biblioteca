@@ -5,7 +5,7 @@ using Biblioteca.Models;
 
 namespace Biblioteca.Data
 {
-    public class AcessoUsuarios
+    public class AcessoUsuario
     {
         public List<Usuario> ListarTodosUsuarios()
         {
@@ -27,6 +27,16 @@ namespace Biblioteca.Data
                             usuario.Nome = leitor["Nome"].ToString();
                             usuario.CPF = leitor["CPF"].ToString();
                             usuario.Email = leitor["Email"].ToString();
+
+                            if (leitor["Telefone"] != DBNull.Value)
+                            {
+                                usuario.Telefone = leitor["Telefone"].ToString();
+                            }
+                            else
+                            {
+                                usuario.Telefone = "";
+                            }
+
                             usuario.TipoUsuario = leitor["TipoUsuario"].ToString();
 
                             listaDeUsuarios.Add(usuario);
@@ -34,8 +44,83 @@ namespace Biblioteca.Data
                     }
                 }
             }
-
             return listaDeUsuarios;
+        }
+
+        public void CadastrarUsuario(Usuario usuario)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "INSERT INTO Usuarios (Nome, CPF, Email, Telefone, TipoUsuario) VALUES (@Nome, @CPF, @Email, @Telefone, @Tipo)";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Nome", usuario.Nome);
+                    comando.Parameters.AddWithValue("@CPF", usuario.CPF);
+                    comando.Parameters.AddWithValue("@Email", usuario.Email);
+                    comando.Parameters.AddWithValue("@Telefone", usuario.Telefone);
+                    comando.Parameters.AddWithValue("@Tipo", usuario.TipoUsuario);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public int VerificarSeUsuarioExiste(string cpf)
+        {
+            int idEncontrado = 0;
+
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "SELECT Id FROM Usuarios WHERE Cpf = @Cpf";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Cpf", cpf);
+
+                    object resultado = comando.ExecuteScalar();
+
+                    if (resultado != null && resultado != DBNull.Value)
+                    {
+                        idEncontrado = Convert.ToInt32(resultado);
+                    }
+                }
+            }
+            return idEncontrado;
+        }
+
+        public void EditarUsuario(Usuario usuario)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "UPDATE Usuarios SET Nome = @Nome, Email = @Email, Telefone = @Telefone, TipoUsuario = @Tipo, CPF = @CPF WHERE Id = @Id";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Id", usuario.Id);
+                    comando.Parameters.AddWithValue("@Nome", usuario.Nome);
+                    comando.Parameters.AddWithValue("@Email", usuario.Email);
+                    comando.Parameters.AddWithValue("@Telefone", usuario.Telefone);
+                    comando.Parameters.AddWithValue("@Tipo", usuario.TipoUsuario);
+                    comando.Parameters.AddWithValue("@CPF", usuario.CPF);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void RemoverUsuario(int id)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                string sql = "DELETE FROM Usuarios WHERE Id = @Id";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Id", id);
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

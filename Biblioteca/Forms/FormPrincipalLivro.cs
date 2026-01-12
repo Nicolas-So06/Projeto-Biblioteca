@@ -25,6 +25,7 @@ namespace Biblioteca
         {
 
         }
+
         private void CarregarTabela()
         {
             AcessoLivros acesso = new AcessoLivros();
@@ -49,23 +50,21 @@ namespace Biblioteca
                 return; 
             }
 
-            Livro livro = new Livro();
-            livro.Id = idSelecionado;
-            livro.Titulo = txtTitulo.Text;
-            livro.Autor = txtAutor.Text;
-            livro.AnoPublicacao = (int)numAno.Value;
+            Livro livroEditado = new Livro();
+            livroEditado.Id = idSelecionado;
+            livroEditado.Titulo = txtTitulo.Text;
+            livroEditado.Autor = txtAutor.Text;
+            livroEditado.AnoPublicacao = (int)numAno.Value;
 
             AcessoLivros acesso = new AcessoLivros();
-            acesso.EditarLivro(livro);
+            acesso.EditarLivro(livroEditado);
 
             MessageBox.Show("Edição salva com sucesso!");
 
             CarregarTabela();
 
-            idSelecionado = 0;
-            txtTitulo.Text = "";
-            txtAutor.Text = "";
-            numAno.Value = DateTime.Now.Year;
+            LimparCampo();
+
         }
 
         private void btnExcluirLivro_Click(object sender, EventArgs e)
@@ -74,16 +73,26 @@ namespace Biblioteca
             {
                 int idParaApagar = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["Id"].Value);
 
+                DialogResult resposta = MessageBox.Show("Tem certeza que deseja excluir este usuário?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (resposta == DialogResult.No)
+                {
+                    return;
+                }
+
                 AcessoLivros acesso = new AcessoLivros();
                 acesso.RemoverLivro(idParaApagar);
 
-                CarregarTabela(); 
+                CarregarTabela();
+
+                LimparCampo();
+
 
                 MessageBox.Show("Livro removido com sucesso!");
             }
-            else
+            else 
             {
-                MessageBox.Show("Selecione um livro para excluir.");
+                MessageBox.Show("Selecione um livro para fazer a exclusão!");
             }
         }
 
@@ -100,6 +109,13 @@ namespace Biblioteca
 
                 idSelecionado = Convert.ToInt32(linha.Cells["Id"].Value);
             }
+        }
+
+        private void LimparCampo()
+        {
+            txtTitulo.Text = "";
+            txtAutor.Text = "";
+            numAno.Value = DateTime.Now.Year;
         }
 
         private void btnAdicionarLivro_Click(object sender, EventArgs e)

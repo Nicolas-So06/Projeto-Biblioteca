@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.CadastrarLivro = new System.Windows.Forms.GroupBox();
             this.numQuantidade = new System.Windows.Forms.NumericUpDown();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -38,30 +38,30 @@
             this.lblAno = new System.Windows.Forms.Label();
             this.lblAutor = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnVoltarCadastroLivro_Click = new System.Windows.Forms.Button();
-            this.GroupBox1.SuspendLayout();
+            this.btnVoltarCadastroLivro = new System.Windows.Forms.Button();
+            this.CadastrarLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
             this.SuspendLayout();
             // 
-            // GroupBox1
+            // CadastrarLivro
             // 
-            this.GroupBox1.Controls.Add(this.numQuantidade);
-            this.GroupBox1.Controls.Add(this.lblQuantidade);
-            this.GroupBox1.Controls.Add(this.btnCadastrar);
-            this.GroupBox1.Controls.Add(this.numAno);
-            this.GroupBox1.Controls.Add(this.txtAutor);
-            this.GroupBox1.Controls.Add(this.txtTitulo);
-            this.GroupBox1.Controls.Add(this.lblAno);
-            this.GroupBox1.Controls.Add(this.lblAutor);
-            this.GroupBox1.Controls.Add(this.lblTitulo);
-            this.GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GroupBox1.Location = new System.Drawing.Point(36, 25);
-            this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(832, 181);
-            this.GroupBox1.TabIndex = 5;
-            this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Novo Livro";
+            this.CadastrarLivro.Controls.Add(this.numQuantidade);
+            this.CadastrarLivro.Controls.Add(this.lblQuantidade);
+            this.CadastrarLivro.Controls.Add(this.btnCadastrar);
+            this.CadastrarLivro.Controls.Add(this.numAno);
+            this.CadastrarLivro.Controls.Add(this.txtAutor);
+            this.CadastrarLivro.Controls.Add(this.txtTitulo);
+            this.CadastrarLivro.Controls.Add(this.lblAno);
+            this.CadastrarLivro.Controls.Add(this.lblAutor);
+            this.CadastrarLivro.Controls.Add(this.lblTitulo);
+            this.CadastrarLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CadastrarLivro.Location = new System.Drawing.Point(36, 25);
+            this.CadastrarLivro.Name = "CadastrarLivro";
+            this.CadastrarLivro.Size = new System.Drawing.Size(832, 181);
+            this.CadastrarLivro.TabIndex = 5;
+            this.CadastrarLivro.TabStop = false;
+            this.CadastrarLivro.Text = "Novo Livro";
             // 
             // numQuantidade
             // 
@@ -169,29 +169,30 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Titulo:";
             // 
-            // btnVoltarCadastroLivro_Click
+            // btnVoltarCadastroLivro
             // 
-            this.btnVoltarCadastroLivro_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarCadastroLivro_Click.Location = new System.Drawing.Point(761, 232);
-            this.btnVoltarCadastroLivro_Click.Name = "btnVoltarCadastroLivro_Click";
-            this.btnVoltarCadastroLivro_Click.Size = new System.Drawing.Size(107, 31);
-            this.btnVoltarCadastroLivro_Click.TabIndex = 8;
-            this.btnVoltarCadastroLivro_Click.Text = "Voltar";
-            this.btnVoltarCadastroLivro_Click.UseVisualStyleBackColor = true;
-            this.btnVoltarCadastroLivro_Click.Click += new System.EventHandler(this.btnVoltarCadastroLivro_Click_Click);
+            this.btnVoltarCadastroLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltarCadastroLivro.Location = new System.Drawing.Point(761, 232);
+            this.btnVoltarCadastroLivro.Name = "btnVoltarCadastroLivro";
+            this.btnVoltarCadastroLivro.Size = new System.Drawing.Size(107, 31);
+            this.btnVoltarCadastroLivro.TabIndex = 8;
+            this.btnVoltarCadastroLivro.Text = "Voltar";
+            this.btnVoltarCadastroLivro.UseVisualStyleBackColor = true;
+            this.btnVoltarCadastroLivro.Click += new System.EventHandler(this.btnVoltarCadastroLivro_Click);
             // 
             // FormCadastroLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 275);
-            this.Controls.Add(this.btnVoltarCadastroLivro_Click);
-            this.Controls.Add(this.GroupBox1);
+            this.Controls.Add(this.btnVoltarCadastroLivro);
+            this.Controls.Add(this.CadastrarLivro);
             this.Name = "FormCadastroLivro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastroLivro";
-            this.GroupBox1.ResumeLayout(false);
-            this.GroupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.FormCadastroLivro_Load);
+            this.CadastrarLivro.ResumeLayout(false);
+            this.CadastrarLivro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).EndInit();
             this.ResumeLayout(false);
@@ -200,7 +201,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox GroupBox1;
+        private System.Windows.Forms.GroupBox CadastrarLivro;
         private System.Windows.Forms.NumericUpDown numAno;
         private System.Windows.Forms.TextBox txtAutor;
         private System.Windows.Forms.TextBox txtTitulo;
@@ -210,6 +211,6 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.NumericUpDown numQuantidade;
         private System.Windows.Forms.Label lblQuantidade;
-        private System.Windows.Forms.Button btnVoltarCadastroLivro_Click;
+        private System.Windows.Forms.Button btnVoltarCadastroLivro;
     }
 }
