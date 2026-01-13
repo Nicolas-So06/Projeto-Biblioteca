@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows.Forms;
 using Biblioteca.Data;
 using Biblioteca.Forms;
+using Biblioteca.Forms.FormsLivro;
 using Biblioteca.Models;
 
 namespace Biblioteca
@@ -69,31 +71,28 @@ namespace Biblioteca
 
         private void btnExcluirLivro_Click(object sender, EventArgs e)
         {
-            if (dgvLivros.SelectedRows.Count > 0)
+            if (dgvLivros.SelectedRows.Count == 0)
             {
-                int idParaApagar = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["Id"].Value);
+                MessageBox.Show("Selecione um livro para fazer a exclusão!");
+                return;
+            }
 
-                DialogResult resposta = MessageBox.Show("Tem certeza que deseja excluir este usuário?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (resposta == DialogResult.No)
-                {
-                    return;
-                }
+            int id = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["Id"].Value);
+            string titulo = dgvLivros.SelectedRows[0].Cells["Titulo"].Value.ToString();
+            int qtdDisponivel = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["QuantidadeDisponivel"].Value);
 
-                AcessoLivros acesso = new AcessoLivros();
-                acesso.RemoverLivro(idParaApagar);
+
+            FormBaixaEstoque telaQuantExcluir = new FormBaixaEstoque(id, titulo, qtdDisponivel);
+            DialogResult resultado = telaQuantExcluir.ShowDialog();
+
+            if(resultado == DialogResult.OK) 
+            {
 
                 CarregarTabela();
 
                 LimparCampo();
-
-
-                MessageBox.Show("Livro removido com sucesso!");
-            }
-            else 
-            {
-                MessageBox.Show("Selecione um livro para fazer a exclusão!");
-            }
+            }            
         }
 
         private void dgvLivros_CellClick(object sender, DataGridViewCellEventArgs e)

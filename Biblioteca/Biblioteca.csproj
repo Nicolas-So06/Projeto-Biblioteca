@@ -50,53 +50,62 @@
     <Compile Include="Data\AcessoLivros.cs" />
     <Compile Include="Data\AcessoUsuario.cs" />
     <Compile Include="Data\Conexao.cs" />
-    <Compile Include="Forms\FormCadastroUsuario.cs">
+    <Compile Include="Forms\FormsLivro\FormBaixaEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormCadastroUsuario.Designer.cs">
+    <Compile Include="Forms\FormsLivro\FormBaixaEstoque.Designer.cs">
+      <DependentUpon>FormBaixaEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsUsuario\FormCadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsUsuario\FormCadastroUsuario.Designer.cs">
       <DependentUpon>FormCadastroUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPrincipalBiblioteca.cs">
+    <Compile Include="Forms\FormsMenuPrincipal\FormPrincipalBiblioteca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPrincipalBiblioteca.Designer.cs">
+    <Compile Include="Forms\FormsMenuPrincipal\FormPrincipalBiblioteca.Designer.cs">
       <DependentUpon>FormPrincipalBiblioteca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPrincipalLivro.cs">
+    <Compile Include="Forms\FormsLivro\FormPrincipalLivro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPrincipalLivro.Designer.cs">
+    <Compile Include="Forms\FormsLivro\FormPrincipalLivro.Designer.cs">
       <DependentUpon>FormPrincipalLivro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormCadastroLivro.cs">
+    <Compile Include="Forms\FormsLivro\FormCadastroLivro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormCadastroLivro.Designer.cs">
+    <Compile Include="Forms\FormsLivro\FormCadastroLivro.Designer.cs">
       <DependentUpon>FormCadastroLivro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPrincipalUsuario.cs">
+    <Compile Include="Forms\FormsUsuario\FormPrincipalUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPrincipalUsuario.Designer.cs">
+    <Compile Include="Forms\FormsUsuario\FormPrincipalUsuario.Designer.cs">
       <DependentUpon>FormPrincipalUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Livro.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FormCadastroLivro.resx">
+    <EmbeddedResource Include="Forms\FormsLivro\FormBaixaEstoque.resx">
+      <DependentUpon>FormBaixaEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsLivro\FormCadastroLivro.resx">
       <DependentUpon>FormCadastroLivro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormCadastroUsuario.resx">
+    <EmbeddedResource Include="Forms\FormsUsuario\FormCadastroUsuario.resx">
       <DependentUpon>FormCadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPrincipalBiblioteca.resx">
+    <EmbeddedResource Include="Forms\FormsMenuPrincipal\FormPrincipalBiblioteca.resx">
       <DependentUpon>FormPrincipalBiblioteca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPrincipalLivro.resx">
+    <EmbeddedResource Include="Forms\FormsLivro\FormPrincipalLivro.resx">
       <DependentUpon>FormPrincipalLivro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPrincipalUsuario.resx">
+    <EmbeddedResource Include="Forms\FormsUsuario\FormPrincipalUsuario.resx">
       <DependentUpon>FormPrincipalUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

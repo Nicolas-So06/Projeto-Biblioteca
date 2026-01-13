@@ -129,5 +129,21 @@ namespace Biblioteca.Data
                 }
             }
         }
+
+        public void ExcluirQuantidadeLivro(int idLivro, int qtdParaRemover)
+        {
+            using (SqlConnection conexao = Conexao.ObterConexao())
+            {
+                String sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal - @qtd, QuantidadeDisponivel = QuantidadeDisponivel - @qtd WHERE id = @id";
+
+                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("qtd", qtdParaRemover);
+                    comando.Parameters.AddWithValue("id", idLivro);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

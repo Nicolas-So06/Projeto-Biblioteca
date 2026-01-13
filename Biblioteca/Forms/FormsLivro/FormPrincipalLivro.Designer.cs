@@ -50,6 +50,7 @@
             // 
             // dgvLivros
             // 
+            this.dgvLivros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLivros.Location = new System.Drawing.Point(28, 328);
             this.dgvLivros.Name = "dgvLivros";

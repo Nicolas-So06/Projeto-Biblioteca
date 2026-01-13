@@ -163,7 +163,7 @@
             this.btnSalvarEdicaoUsuario.Name = "btnSalvarEdicaoUsuario";
             this.btnSalvarEdicaoUsuario.Size = new System.Drawing.Size(196, 31);
             this.btnSalvarEdicaoUsuario.TabIndex = 3;
-            this.btnSalvarEdicaoUsuario.Text = "Salvar";
+            this.btnSalvarEdicaoUsuario.Text = "Editar";
             this.btnSalvarEdicaoUsuario.UseVisualStyleBackColor = true;
             this.btnSalvarEdicaoUsuario.Click += new System.EventHandler(this.btnSalvarEdicaoUsuario_Click);
             // 
@@ -210,6 +210,7 @@
             // 
             // dgvUsuario
             // 
+            this.dgvUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuario.Location = new System.Drawing.Point(55, 325);
             this.dgvUsuario.Name = "dgvUsuario";
