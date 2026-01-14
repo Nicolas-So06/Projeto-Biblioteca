@@ -15,7 +15,5 @@ namespace Biblioteca.Models
         public DateTime DataDevolucaoPrevista { get; set; }
 
         public string StatusEmprestimo { get; set; }
-
-
     }
 }

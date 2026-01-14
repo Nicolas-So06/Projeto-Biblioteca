@@ -15,7 +15,7 @@ namespace Biblioteca.Data
                 {
                     string sqlInsert = "INSERT INTO Emprestimos(UsuarioId, LivroId, DataEmprestimo, DataDevolucaoPrevista, StatusEmprestimo) VALUES (@UsuarioId, @LivroId, @DataEmprestimo, @DataDevolucaoPrevista, @StatusEmprestimo)";
 
-                    using(SqlCommand comando = new SqlCommand(sqlInsert, conexao))
+                    using(SqlCommand comando = new SqlCommand(sqlInsert, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@UsuarioId", emprestimo.UsuarioId);
                         comando.Parameters.AddWithValue("@LivroId", emprestimo.LivroId);
@@ -27,7 +27,7 @@ namespace Biblioteca.Data
 
                     string sqlUpdate = "UPDATE Livros SET QuantidadeDisponivel = QuantidadeDisponivel - 1 WHERE Id = @IdLivro";
 
-                    using (SqlCommand comando = new SqlCommand(sqlUpdate, conexao))
+                    using (SqlCommand comando = new SqlCommand(sqlUpdate, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@IdLivro", emprestimo.LivroId);
                         comando.ExecuteNonQuery();

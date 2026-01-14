@@ -120,18 +120,18 @@ namespace Biblioteca.Forms
                     return;
                 }
 
-                AcessoLivros acesso = new AcessoLivros();
-                acesso.RemoverLivro(idParaApagar);
+                AcessoUsuario acesso = new AcessoUsuario();
+                acesso.RemoverUsuario(idParaApagar);
 
                 CarregarTabela();
 
                 LimparCampo();
 
-                MessageBox.Show("Livro removido com sucesso!");
+                MessageBox.Show("Usuario removido com sucesso!");
             }
             else
             {
-                MessageBox.Show("Selecione um livro para fazer a exclusão!");
+                MessageBox.Show("Selecione um usuario para fazer a exclusão!");
             }
         }
 

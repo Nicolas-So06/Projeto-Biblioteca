@@ -31,8 +31,8 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnGerenciarUsuario = new System.Windows.Forms.Button();
             this.btnEmprestimo = new System.Windows.Forms.Button();
-            this.btnGerenciarLivro = new System.Windows.Forms.Button(); 
-            this.btnSairSistema = new System.Windows.Forms.Button(); 
+            this.btnGerenciarLivro = new System.Windows.Forms.Button();
+            this.btnSairSistema = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -54,39 +54,40 @@
             this.btnGerenciarUsuario.TabIndex = 1;
             this.btnGerenciarUsuario.Text = "Gerenciar Usuários";
             this.btnGerenciarUsuario.UseVisualStyleBackColor = true;
-            this.btnGerenciarUsuario.Click += new System.EventHandler(this.btnGerenciarUsuario_Click);
+            this.btnGerenciarUsuario.Click += new System.EventHandler(this.BtnGerenciarUsuario_Click);
             // 
             // btnEmprestimo
             // 
             this.btnEmprestimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmprestimo.Location = new System.Drawing.Point(327, 197);
-            this.btnEmprestimo.Name = "btnEmprestimo"; 
+            this.btnEmprestimo.Name = "btnEmprestimo";
             this.btnEmprestimo.Size = new System.Drawing.Size(243, 118);
             this.btnEmprestimo.TabIndex = 2;
             this.btnEmprestimo.Text = "Empréstimos";
             this.btnEmprestimo.UseVisualStyleBackColor = true;
+            this.btnEmprestimo.Click += new System.EventHandler(this.btnEmprestimo_Click);
             // 
             // btnGerenciarLivro
             // 
             this.btnGerenciarLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerenciarLivro.Location = new System.Drawing.Point(631, 197);
-            this.btnGerenciarLivro.Name = "btnGerenciarLivro"; 
+            this.btnGerenciarLivro.Name = "btnGerenciarLivro";
             this.btnGerenciarLivro.Size = new System.Drawing.Size(243, 118);
             this.btnGerenciarLivro.TabIndex = 3;
             this.btnGerenciarLivro.Text = "Gerenciar Livros";
             this.btnGerenciarLivro.UseVisualStyleBackColor = true;
-            this.btnGerenciarLivro.Click += new System.EventHandler(this.btnGerenciarLivro_Click);
+            this.btnGerenciarLivro.Click += new System.EventHandler(this.BtnGerenciarLivro_Click);
             // 
             // btnSairSistema
             // 
             this.btnSairSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairSistema.Location = new System.Drawing.Point(327, 431);
-            this.btnSairSistema.Name = "btnSairSistema"; 
+            this.btnSairSistema.Name = "btnSairSistema";
             this.btnSairSistema.Size = new System.Drawing.Size(243, 64);
             this.btnSairSistema.TabIndex = 4;
             this.btnSairSistema.Text = "Sair do Sistema";
             this.btnSairSistema.UseVisualStyleBackColor = true;
-            this.btnSairSistema.Click += new System.EventHandler(this.btnSairSistema_Click);
+            this.btnSairSistema.Click += new System.EventHandler(this.BtnSairSistema_Click);
             // 
             // FormMenuPrincipal
             // 

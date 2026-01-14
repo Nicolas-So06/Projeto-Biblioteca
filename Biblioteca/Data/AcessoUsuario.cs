@@ -57,7 +57,7 @@ namespace Biblioteca.Data
                 {
                     string sql = "INSERT INTO Usuarios (Nome, CPF, Email, Telefone, TipoUsuario) VALUES (@Nome, @CPF, @Email, @Telefone, @Tipo)";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@Nome", usuario.Nome);
                         comando.Parameters.AddWithValue("@CPF", usuario.CPF);
@@ -107,7 +107,7 @@ namespace Biblioteca.Data
                 {
                     string sql = "UPDATE Usuarios SET Nome = @Nome, Email = @Email, Telefone = @Telefone, TipoUsuario = @Tipo, CPF = @CPF WHERE Id = @Id";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@Id", usuario.Id);
                         comando.Parameters.AddWithValue("@Nome", usuario.Nome);
@@ -135,7 +135,7 @@ namespace Biblioteca.Data
                 {
                     string sql = "DELETE FROM Usuarios WHERE Id = @Id";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@Id", id);
                         comando.ExecuteNonQuery();

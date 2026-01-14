@@ -126,7 +126,7 @@ namespace Biblioteca
             CarregarTabela();
         }
 
-        private void btnVoltarLivro_Click_Click(object sender, EventArgs e)
+        private void btnVoltarLivro_Click(object sender, EventArgs e)
         {
             this.Close();   
         }

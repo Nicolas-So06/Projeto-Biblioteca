@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Biblioteca.Forms.FormsEmprestimo;
+using System;
 using System.Windows.Forms;
 
 namespace Biblioteca.Forms
@@ -22,23 +16,30 @@ namespace Biblioteca.Forms
 
         }
 
-        private void btnSairSistema_Click(object sender, EventArgs e)
+        private void BtnSairSistema_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnGerenciarLivro_Click(object sender, EventArgs e)
+        private void BtnGerenciarLivro_Click(object sender, EventArgs e)
         {
             FormPrincipalLivro telaLivro = new FormPrincipalLivro();
 
             telaLivro.ShowDialog();
         }
 
-        private void btnGerenciarUsuario_Click(object sender, EventArgs e)
+        private void BtnGerenciarUsuario_Click(object sender, EventArgs e)
         {
             FormPrincipalUsuario telaUsuario = new FormPrincipalUsuario();
 
             telaUsuario.ShowDialog();
+        }
+
+        private void btnEmprestimo_Click(object sender, EventArgs e)
+        {
+            FormPrincipalEmprestimo telaEmprestimo = new FormPrincipalEmprestimo();
+
+            telaEmprestimo.ShowDialog();
         }
     }
 }

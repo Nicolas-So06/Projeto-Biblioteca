@@ -51,7 +51,7 @@ namespace Biblioteca.Data
                 {
                     string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao, QuantidadeDisponivel, QuantidadeTotal) VALUES (@titulo, @autor, @ano, @Qtd, @Qtd)";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@titulo", livro.Titulo);
                         comando.Parameters.AddWithValue("@autor", livro.Autor);
@@ -76,7 +76,7 @@ namespace Biblioteca.Data
                 {
                     string sql = "DELETE FROM Livros WHERE Id = @Id";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@Id", idLivro);
                         comando.ExecuteNonQuery();
@@ -98,7 +98,7 @@ namespace Biblioteca.Data
                 {
                     string sql = "UPDATE Livros SET Titulo = @Titulo, Autor = @Autor, AnoPublicacao = @Ano WHERE Id = @Id";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@Titulo", livro.Titulo);
                         comando.Parameters.AddWithValue("@Autor", livro.Autor);
@@ -148,7 +148,7 @@ namespace Biblioteca.Data
                 {
                     string sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal + @Qtd, QuantidadeDisponivel = QuantidadeDisponivel + @Qtd WHERE Id = @Id";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("@Id", id);
                         comando.Parameters.AddWithValue("@Qtd", quantidade);
@@ -171,7 +171,7 @@ namespace Biblioteca.Data
                 {
                     String sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal - @qtd, QuantidadeDisponivel = QuantidadeDisponivel - @qtd WHERE id = @id";
 
-                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    using (SqlCommand comando = new SqlCommand(sql, conexao, transacao))
                     {
                         comando.Parameters.AddWithValue("qtd", qtdParaRemover);
                         comando.Parameters.AddWithValue("id", idLivro);

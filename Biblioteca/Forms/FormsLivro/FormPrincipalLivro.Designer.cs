@@ -42,7 +42,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnVoltarLivro_Click = new System.Windows.Forms.Button();
+            this.btnVoltarLivro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivros)).BeginInit();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
@@ -185,23 +185,23 @@
             this.imageList1.ImageSize = new System.Drawing.Size(100, 100);
             this.imageList1.TransparentColor = System.Drawing.Color.Black;
             // 
-            // btnVoltarLivro_Click
+            // btnVoltarLivro
             // 
-            this.btnVoltarLivro_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarLivro_Click.Location = new System.Drawing.Point(758, 734);
-            this.btnVoltarLivro_Click.Name = "btnVoltarLivro_Click";
-            this.btnVoltarLivro_Click.Size = new System.Drawing.Size(107, 31);
-            this.btnVoltarLivro_Click.TabIndex = 7;
-            this.btnVoltarLivro_Click.Text = "Voltar";
-            this.btnVoltarLivro_Click.UseVisualStyleBackColor = true;
-            this.btnVoltarLivro_Click.Click += new System.EventHandler(this.btnVoltarLivro_Click_Click);
+            this.btnVoltarLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltarLivro.Location = new System.Drawing.Point(758, 734);
+            this.btnVoltarLivro.Name = "btnVoltarLivro";
+            this.btnVoltarLivro.Size = new System.Drawing.Size(107, 31);
+            this.btnVoltarLivro.TabIndex = 7;
+            this.btnVoltarLivro.Text = "Voltar";
+            this.btnVoltarLivro.UseVisualStyleBackColor = true;
+            this.btnVoltarLivro.Click += new System.EventHandler(this.btnVoltarLivro_Click);
             // 
             // FormPrincipalLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 777);
-            this.Controls.Add(this.btnVoltarLivro_Click);
+            this.Controls.Add(this.btnVoltarLivro);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.btnAdicionar);
@@ -233,7 +233,7 @@
         private System.Windows.Forms.NumericUpDown numAno;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button btnVoltarLivro_Click;
+        private System.Windows.Forms.Button btnVoltarLivro;
     }
 }
 

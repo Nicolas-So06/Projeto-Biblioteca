@@ -47,9 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\AcessoEmprestimos.cs" />
     <Compile Include="Data\AcessoLivros.cs" />
     <Compile Include="Data\AcessoUsuario.cs" />
     <Compile Include="Data\Conexao.cs" />
+    <Compile Include="Forms\FormsEmprestimo\FormPrincipalEmprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsEmprestimo\FormPrincipalEmprestimo.Designer.cs">
+      <DependentUpon>FormPrincipalEmprestimo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormsLivro\FormBaixaEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,10 +93,14 @@
     <Compile Include="Forms\FormsUsuario\FormPrincipalUsuario.Designer.cs">
       <DependentUpon>FormPrincipalUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Emprestimo.cs" />
     <Compile Include="Models\Livro.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormsEmprestimo\FormPrincipalEmprestimo.resx">
+      <DependentUpon>FormPrincipalEmprestimo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsLivro\FormBaixaEstoque.resx">
       <DependentUpon>FormBaixaEstoque.cs</DependentUpon>
     </EmbeddedResource>
