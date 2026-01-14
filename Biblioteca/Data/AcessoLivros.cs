@@ -44,17 +44,25 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao, QuantidadeDisponivel, QuantidadeTotal) VALUES (@titulo, @autor, @ano, @Qtd, @Qtd)";
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                SqlTransaction transacao = conexao.BeginTransaction();
+
+                try
                 {
-                    comando.Parameters.AddWithValue("@titulo", livro.Titulo);
-                    comando.Parameters.AddWithValue("@autor", livro.Autor);
-                    comando.Parameters.AddWithValue("@ano", livro.AnoPublicacao);
-                    comando.Parameters.AddWithValue("@Qtd", quantidadeInicial);
+                    string sql = "INSERT INTO Livros (Titulo, Autor, AnoPublicacao, QuantidadeDisponivel, QuantidadeTotal) VALUES (@titulo, @autor, @ano, @Qtd, @Qtd)";
 
-                    comando.ExecuteNonQuery();
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@titulo", livro.Titulo);
+                        comando.Parameters.AddWithValue("@autor", livro.Autor);
+                        comando.Parameters.AddWithValue("@ano", livro.AnoPublicacao);
+                        comando.Parameters.AddWithValue("@Qtd", quantidadeInicial);
+                        comando.ExecuteNonQuery();
+                    }
+                    transacao.Commit();
                 }
+                catch { transacao.Rollback(); throw; }  
+                
             }
         }
 
@@ -62,13 +70,21 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "DELETE FROM Livros WHERE Id = @Id";
+                SqlTransaction transacao = conexao.BeginTransaction();
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                try
                 {
-                    comando.Parameters.AddWithValue("@Id", idLivro);
-                    comando.ExecuteNonQuery();
+                    string sql = "DELETE FROM Livros WHERE Id = @Id";
+
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Id", idLivro);
+                        comando.ExecuteNonQuery();
+                    }
+                    transacao.Commit();
                 }
+                catch { transacao.Rollback(); throw; }
+
             }
         }
 
@@ -76,18 +92,25 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "UPDATE Livros SET Titulo = @Titulo, Autor = @Autor, AnoPublicacao = @Ano WHERE Id = @Id";
+                SqlTransaction transacao = conexao.BeginTransaction();
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                try
                 {
-                    comando.Parameters.AddWithValue("@Titulo", livro.Titulo);
-                    comando.Parameters.AddWithValue("@Autor", livro.Autor);
-                    comando.Parameters.AddWithValue("@Ano", livro.AnoPublicacao);
+                    string sql = "UPDATE Livros SET Titulo = @Titulo, Autor = @Autor, AnoPublicacao = @Ano WHERE Id = @Id";
 
-                    comando.Parameters.AddWithValue("@Id", livro.Id);
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Titulo", livro.Titulo);
+                        comando.Parameters.AddWithValue("@Autor", livro.Autor);
+                        comando.Parameters.AddWithValue("@Ano", livro.AnoPublicacao);
 
-                    comando.ExecuteNonQuery(); 
+                        comando.Parameters.AddWithValue("@Id", livro.Id);
+
+                        comando.ExecuteNonQuery();
+                    }
                 }
+                catch { transacao.Rollback(); throw; }
+
             }
         }
 
@@ -119,14 +142,22 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal + @Qtd, QuantidadeDisponivel = QuantidadeDisponivel + @Qtd WHERE Id = @Id";
+                SqlTransaction transacao = conexao.BeginTransaction();
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                try
                 {
-                    comando.Parameters.AddWithValue("@Id", id);
-                    comando.Parameters.AddWithValue("@Qtd", quantidade);
-                    comando.ExecuteNonQuery();
+                    string sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal + @Qtd, QuantidadeDisponivel = QuantidadeDisponivel + @Qtd WHERE Id = @Id";
+
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Id", id);
+                        comando.Parameters.AddWithValue("@Qtd", quantidade);
+                        comando.ExecuteNonQuery();
+                    }
+                    transacao.Commit(); 
                 }
+                catch { transacao.Rollback(); throw; }
+
             }
         }
 
@@ -134,15 +165,23 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                String sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal - @qtd, QuantidadeDisponivel = QuantidadeDisponivel - @qtd WHERE id = @id";
+                SqlTransaction transacao = conexao.BeginTransaction();
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                try
                 {
-                    comando.Parameters.AddWithValue("qtd", qtdParaRemover);
-                    comando.Parameters.AddWithValue("id", idLivro);
+                    String sql = "UPDATE Livros SET QuantidadeTotal = QuantidadeTotal - @qtd, QuantidadeDisponivel = QuantidadeDisponivel - @qtd WHERE id = @id";
 
-                    comando.ExecuteNonQuery();
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("qtd", qtdParaRemover);
+                        comando.Parameters.AddWithValue("id", idLivro);
+
+                        comando.ExecuteNonQuery();
+                    }
+                    transacao.Commit();
                 }
+                catch { transacao.Rollback(); throw; }
+                
             }
         }
     }

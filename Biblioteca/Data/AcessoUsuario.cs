@@ -51,18 +51,26 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "INSERT INTO Usuarios (Nome, CPF, Email, Telefone, TipoUsuario) VALUES (@Nome, @CPF, @Email, @Telefone, @Tipo)";
+                SqlTransaction transacao = conexao.BeginTransaction();
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                try
                 {
-                    comando.Parameters.AddWithValue("@Nome", usuario.Nome);
-                    comando.Parameters.AddWithValue("@CPF", usuario.CPF);
-                    comando.Parameters.AddWithValue("@Email", usuario.Email);
-                    comando.Parameters.AddWithValue("@Telefone", usuario.Telefone);
-                    comando.Parameters.AddWithValue("@Tipo", usuario.TipoUsuario);
+                    string sql = "INSERT INTO Usuarios (Nome, CPF, Email, Telefone, TipoUsuario) VALUES (@Nome, @CPF, @Email, @Telefone, @Tipo)";
 
-                    comando.ExecuteNonQuery();
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Nome", usuario.Nome);
+                        comando.Parameters.AddWithValue("@CPF", usuario.CPF);
+                        comando.Parameters.AddWithValue("@Email", usuario.Email);
+                        comando.Parameters.AddWithValue("@Telefone", usuario.Telefone);
+                        comando.Parameters.AddWithValue("@Tipo", usuario.TipoUsuario);
+
+                        comando.ExecuteNonQuery();
+                    }
+                    transacao.Commit();
                 }
+                catch { transacao.Rollback(); throw; }
+
             }
         }
 
@@ -93,19 +101,27 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "UPDATE Usuarios SET Nome = @Nome, Email = @Email, Telefone = @Telefone, TipoUsuario = @Tipo, CPF = @CPF WHERE Id = @Id";
+                SqlTransaction transacao = conexao.BeginTransaction();
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                try
                 {
-                    comando.Parameters.AddWithValue("@Id", usuario.Id);
-                    comando.Parameters.AddWithValue("@Nome", usuario.Nome);
-                    comando.Parameters.AddWithValue("@Email", usuario.Email);
-                    comando.Parameters.AddWithValue("@Telefone", usuario.Telefone);
-                    comando.Parameters.AddWithValue("@Tipo", usuario.TipoUsuario);
-                    comando.Parameters.AddWithValue("@CPF", usuario.CPF);
+                    string sql = "UPDATE Usuarios SET Nome = @Nome, Email = @Email, Telefone = @Telefone, TipoUsuario = @Tipo, CPF = @CPF WHERE Id = @Id";
 
-                    comando.ExecuteNonQuery();
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Id", usuario.Id);
+                        comando.Parameters.AddWithValue("@Nome", usuario.Nome);
+                        comando.Parameters.AddWithValue("@Email", usuario.Email);
+                        comando.Parameters.AddWithValue("@Telefone", usuario.Telefone);
+                        comando.Parameters.AddWithValue("@Tipo", usuario.TipoUsuario);
+                        comando.Parameters.AddWithValue("@CPF", usuario.CPF);
+
+                        comando.ExecuteNonQuery();
+                    }
+                    transacao.Commit();
                 }
+                catch { transacao.Rollback(); throw; }
+
             }
         }
 
@@ -113,13 +129,21 @@ namespace Biblioteca.Data
         {
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
-                string sql = "DELETE FROM Usuarios WHERE Id = @Id";
+                SqlTransaction transacao = conexao.BeginTransaction();
 
-                using (SqlCommand comando = new SqlCommand(sql, conexao))
+                try 
                 {
-                    comando.Parameters.AddWithValue("@Id", id);
-                    comando.ExecuteNonQuery();
+                    string sql = "DELETE FROM Usuarios WHERE Id = @Id";
+
+                    using (SqlCommand comando = new SqlCommand(sql, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Id", id);
+                        comando.ExecuteNonQuery();
+                    }
+                    transacao.Commit();
                 }
+                catch { transacao.Rollback(); throw; };
+                
             }
         }
     }
