@@ -184,6 +184,14 @@ namespace Biblioteca.Forms.FormsEmprestimo
                 return; 
             }
 
+            DateTime DataHoje = DateTime.Today;
+            if (dtpEditarDataDevolucaoEmp.Value < DataHoje) 
+            {
+                MessageBox.Show("Não é possivel colocar essa data", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             try
             {
                 AcessoEmprestimos acesso = new AcessoEmprestimos();

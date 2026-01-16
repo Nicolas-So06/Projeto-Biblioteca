@@ -21,6 +21,8 @@ namespace Biblioteca.Forms
                 return;
             }
 
+            if (ValidarCamposObrigatorios()) return;
+
             string titulo = txtTitulo.Text;
             string autor = txtAutor.Text;
             int ano = (int)numAno.Value;
@@ -59,6 +61,37 @@ namespace Biblioteca.Forms
         private void FormCadastroLivro_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private bool ValidarCamposObrigatorios()
+        {
+            if (string.IsNullOrWhiteSpace(txtAutor.Text))
+            {
+                MessageBox.Show("O Autor é obrigatório.");
+                txtAutor.Focus();
+                return true;
+            }
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+            {
+                MessageBox.Show("O Titulo é obrigatório.");
+                txtAutor.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+            {
+                MessageBox.Show("O o Titulo é necessário para organizarmos o estoque!");
+                txtTitulo.Focus();
+                return true;
+            }
+            if (string.IsNullOrWhiteSpace(txtAutor.Text))
+            {
+                MessageBox.Show("O o Autor é necessários para organizarmos o estoque!");
+                txtTitulo.Focus();
+                return true;
+            }
+
+            return false;
         }
     }
 }

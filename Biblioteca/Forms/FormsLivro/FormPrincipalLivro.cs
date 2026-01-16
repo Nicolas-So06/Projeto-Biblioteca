@@ -51,6 +51,8 @@ namespace Biblioteca
                 return; 
             }
 
+            if (ValidarCamposObrigatorios()) return;
+
             Livro livroEditado = new Livro();
             livroEditado.Id = idSelecionado;
             livroEditado.Titulo = txtTitulo.Text;
@@ -133,6 +135,37 @@ namespace Biblioteca
         private void btnVoltarLivro_Click(object sender, EventArgs e)
         {
             this.Close();   
+        }
+
+        private bool ValidarCamposObrigatorios()
+        {
+            if (string.IsNullOrWhiteSpace(txtAutor.Text))
+            {
+                MessageBox.Show("O Autor é obrigatório.");
+                txtAutor.Focus();
+                return true;
+            }
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+            {
+                MessageBox.Show("O Titulo é obrigatório.");
+                txtAutor.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+            {
+                MessageBox.Show("O o Titulo é necessário para organizarmos o estoque!");
+                txtTitulo.Focus();
+                return true;
+            }
+            if (string.IsNullOrWhiteSpace(txtAutor.Text))
+            {
+                MessageBox.Show("O o Autor é necessários para organizarmos o estoque!");
+                txtTitulo.Focus();
+                return true;
+            }
+
+            return false;
         }
     }
 }

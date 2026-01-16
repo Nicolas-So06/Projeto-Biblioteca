@@ -43,6 +43,8 @@ namespace Biblioteca.Forms
                 return;
             }
 
+            if (ValidarCamposObrigatorios()) return;
+
             AcessoUsuario acesso = new AcessoUsuario();
 
             string cpfInformado = txtCpfUsuario.Text;
@@ -68,6 +70,39 @@ namespace Biblioteca.Forms
             MessageBox.Show("Usuário cadastrado com sucesso!");
 
             this.Close();
+        }
+
+        private bool ValidarCamposObrigatorios()
+        {
+            if (string.IsNullOrWhiteSpace(txtNomeUsuario.Text))
+            {
+                MessageBox.Show("O nome é obrigatório.");
+                txtNomeUsuario.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtEmailUsuario.Text))
+            {
+                MessageBox.Show("O email é obrigatório.");
+                txtEmailUsuario.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNomeUsuario.Text))
+            {
+                MessageBox.Show("O nome é necessário para organizarmos o estoque!");
+                txtNomeUsuario.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtEmailUsuario.Text))
+            {
+                MessageBox.Show("O nome é necessário para organizarmos o estoque!");
+                txtEmailUsuario.Focus();
+                return true;
+            }
+
+            return false;
         }
     }
 }

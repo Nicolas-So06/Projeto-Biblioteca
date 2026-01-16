@@ -87,6 +87,8 @@ namespace Biblioteca.Forms
                 return;
             }
 
+            if (ValidarCamposObrigatorios()) return;
+
             Usuario usuarioEditado = new Usuario();
 
             usuarioEditado.Id = idSelecionado;
@@ -153,6 +155,39 @@ namespace Biblioteca.Forms
             txtCpfUsuario.Text = "";
             txtTelefoneUsuario.Text = "";
             cbTipoUsuario.SelectedIndex = -1;
+        }
+
+        private bool ValidarCamposObrigatorios()
+        {
+            if (string.IsNullOrWhiteSpace(txtNomeUsuario.Text))
+            {
+                MessageBox.Show("O nome é obrigatório.");
+                txtNomeUsuario.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtEmailUsuario.Text))
+            {
+                MessageBox.Show("O email é obrigatório.");
+                txtEmailUsuario.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNomeUsuario.Text))
+            {
+                MessageBox.Show("O nome é necessário para organizarmos o estoque!");
+                txtNomeUsuario.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtEmailUsuario.Text))
+            {
+                MessageBox.Show("O nome é necessário para organizarmos o estoque!");
+                txtEmailUsuario.Focus();
+                return true;
+            }
+
+            return false;
         }
     }
 }
