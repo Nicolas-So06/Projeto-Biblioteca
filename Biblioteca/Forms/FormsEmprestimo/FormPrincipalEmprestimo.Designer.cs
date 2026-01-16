@@ -55,7 +55,7 @@
             // 
             // btnSalvarEmprestimo
             // 
-            this.btnSalvarEmprestimo.Location = new System.Drawing.Point(311, 392);
+            this.btnSalvarEmprestimo.Location = new System.Drawing.Point(311, 386);
             this.btnSalvarEmprestimo.Name = "btnSalvarEmprestimo";
             this.btnSalvarEmprestimo.Size = new System.Drawing.Size(120, 25);
             this.btnSalvarEmprestimo.TabIndex = 5;
@@ -94,7 +94,7 @@
             // 
             this.lblDataDevolucaoEmprestimo.AutoSize = true;
             this.lblDataDevolucaoEmprestimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataDevolucaoEmprestimo.Location = new System.Drawing.Point(50, 251);
+            this.lblDataDevolucaoEmprestimo.Location = new System.Drawing.Point(50, 263);
             this.lblDataDevolucaoEmprestimo.Name = "lblDataDevolucaoEmprestimo";
             this.lblDataDevolucaoEmprestimo.Size = new System.Drawing.Size(202, 16);
             this.lblDataDevolucaoEmprestimo.TabIndex = 13;
@@ -103,7 +103,7 @@
             // dtpDataDevolucao
             // 
             this.dtpDataDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataDevolucao.Location = new System.Drawing.Point(328, 251);
+            this.dtpDataDevolucao.Location = new System.Drawing.Point(328, 263);
             this.dtpDataDevolucao.Name = "dtpDataDevolucao";
             this.dtpDataDevolucao.Size = new System.Drawing.Size(103, 22);
             this.dtpDataDevolucao.TabIndex = 12;

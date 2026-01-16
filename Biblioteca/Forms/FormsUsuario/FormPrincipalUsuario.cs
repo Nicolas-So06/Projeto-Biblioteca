@@ -87,7 +87,7 @@ namespace Biblioteca.Forms
                 return;
             }
 
-            if (ValidarCamposObrigatorios()) { return; }
+            if (ValidarCamposObrigatorios())  return; 
 
             Usuario usuarioEditado = new Usuario();
 

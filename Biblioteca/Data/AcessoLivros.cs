@@ -116,18 +116,20 @@ namespace Biblioteca.Data
             }
         }
 
-        public int VerificarSeLivroExiste(string titulo)
+        public int VerificarSeLivroExiste(string titulo, string autor, int ano)
         {
             int idEncontrado = 0;
 
             using (SqlConnection conexao = Conexao.ObterConexao())
             {
 
-                string sql = "SELECT Id FROM Livros WHERE Titulo = @Titulo";
+                string sql = "SELECT Id FROM Livros WHERE Titulo = @Titulo AND Autor = @Autor AND AnoPublicacao = @Ano";
 
                 using (SqlCommand comando = new SqlCommand(sql, conexao))
                 {
                     comando.Parameters.AddWithValue("@Titulo", titulo);
+                    comando.Parameters.AddWithValue("@Autor", autor);
+                    comando.Parameters.AddWithValue("@Ano", ano);
 
                     object resultado = comando.ExecuteScalar();
 

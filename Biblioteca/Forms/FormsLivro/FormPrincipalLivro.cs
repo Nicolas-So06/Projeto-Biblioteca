@@ -51,7 +51,7 @@ namespace Biblioteca
                 return; 
             }
 
-            if (ValidarCamposObrigatorios()) { return; }
+            if (ValidarCamposObrigatorios()) return; 
 
             Livro livroEditado = new Livro();
             livroEditado.Id = idSelecionado;

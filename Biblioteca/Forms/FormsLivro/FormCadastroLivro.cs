@@ -30,7 +30,7 @@ namespace Biblioteca.Forms
 
             AcessoLivros acesso = new AcessoLivros();
 
-            int idDoLivro = acesso.VerificarSeLivroExiste(titulo);
+            int idDoLivro = acesso.VerificarSeLivroExiste(titulo, autor, ano);
 
             if (idDoLivro > 0)
             {
