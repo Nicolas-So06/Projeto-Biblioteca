@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Windows.Forms;
 using Biblioteca.Data;
 using Biblioteca.Forms;
@@ -77,22 +76,27 @@ namespace Biblioteca
                 return;
             }
 
-
             int id = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["Id"].Value);
             string titulo = dgvLivros.SelectedRows[0].Cells["Titulo"].Value.ToString();
             int qtdDisponivel = Convert.ToInt32(dgvLivros.SelectedRows[0].Cells["QuantidadeDisponivel"].Value);
 
 
+            if (qtdDisponivel <= 0)
+            {
+                MessageBox.Show("Este livro já está com estoque zerado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+
             FormBaixaEstoque telaQuantExcluir = new FormBaixaEstoque(id, titulo, qtdDisponivel);
+
             DialogResult resultado = telaQuantExcluir.ShowDialog();
 
-            if(resultado == DialogResult.OK) 
+            if (resultado == DialogResult.OK)
             {
-
                 CarregarTabela();
-
                 LimparCampo();
-            }            
+
+            }
         }
 
         private void dgvLivros_CellClick(object sender, DataGridViewCellEventArgs e)

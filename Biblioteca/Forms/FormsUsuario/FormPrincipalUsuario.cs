@@ -109,29 +109,40 @@ namespace Biblioteca.Forms
 
         private void btnExcluirUsuario_Click(object sender, EventArgs e)
         {
-            if (dgvUsuario.SelectedRows.Count > 0)
+            if (dgvUsuario.SelectedRows.Count == 0)
             {
-                int idParaApagar = Convert.ToInt32(dgvUsuario.SelectedRows[0].Cells["Id"].Value);
-
-                DialogResult resposta = MessageBox.Show("Tem certeza que deseja excluir este usuário?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (resposta == DialogResult.No)
-                {
-                    return;
-                }
-
-                AcessoUsuario acesso = new AcessoUsuario();
-                acesso.RemoverUsuario(idParaApagar);
-
-                CarregarTabela();
-
-                LimparCampo();
-
-                MessageBox.Show("Usuario removido com sucesso!");
+                MessageBox.Show("Selecione um Usuario da Tabela para excluir.");
             }
-            else
+
+            int IdUsuario = Convert.ToInt32(dgvUsuario.SelectedRows[0].Cells["Id"].Value);
+
+            AcessoEmprestimos acessoEmp = new AcessoEmprestimos();
+
+            if (acessoEmp.TemEmprestimoPendente(IdUsuario))
             {
-                MessageBox.Show("Selecione um usuario para fazer a exclusão!");
+                MessageBox.Show("Não é possível excluir este usuário pois ele possui um livro emprestado (Status Ativo).\n\n" + "Solicite a devolução do livro antes de excluir o cadastro.", "Ação Bloqueada", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            var resposta = MessageBox.Show("Tem certeza que deseja excluir este usuário?\n\n" + "ATENÇÃO: Todo o histórico de empréstimos passados dele será apagado permanentemente.", "Excluir Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resposta == DialogResult.Yes)
+            {
+                try
+                {
+                    acessoEmp.ExcluirHistoricoDoUsuario(IdUsuario);
+
+                    AcessoUsuario acessoUser = new AcessoUsuario();
+                    acessoUser.RemoverUsuario(IdUsuario);
+
+                    MessageBox.Show("Usuário removido com sucesso!");
+
+                    CarregarTabela();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao excluir: " + ex.Message);
+                }
             }
         }
 

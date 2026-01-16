@@ -12,66 +12,62 @@ namespace Biblioteca.Forms.FormsLivro
         {
             InitializeComponent();
 
+            idLivroSelecionado = id;
+            txtLivroSelecionadoExcluir.Text = titulo;
             txtLivroSelecionadoExcluir.ReadOnly = true;
 
-            idLivroSelecionado = id;
 
-            txtLivroSelecionadoExcluir.Text = titulo;
+            if (quantidadeDisponivel > 0)
+            {
+                numQuantExcluirLivro.Maximum = quantidadeDisponivel;
+                numQuantExcluirLivro.Value = 1;
+            }
 
-            numQuantExcluirLivro.Maximum = quantidadeDisponivel;
             numQuantExcluirLivro.Minimum = 1;
-            numQuantExcluirLivro.Value = 1;
-        }
-
-
-
-
-        private void VoltarExclusaoLivro_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnComfirmarExclusaoLivro_Click(object sender, EventArgs e)
         {
-            
-            
-            AcessoLivros acesso = new AcessoLivros();
-            int qtdExcluir = Convert.ToInt32(numQuantExcluirLivro.Value);
+            if (!UsuarioConfirmouAcao()) { return; }
 
-            if( qtdExcluir == numQuantExcluirLivro.Maximum) 
+            AcessoLivros acesso = new AcessoLivros();
+            int quantidade = Convert.ToInt32(numQuantExcluirLivro.Value);
+
+            if (quantidade == numQuantExcluirLivro.Maximum)
             {
+
                 try
                 {
-                    confirmacaoExclusaoLivro();
-
                     acesso.RemoverLivro(idLivroSelecionado);
-                    MessageBox.Show("Estoque zerado e livro excluído do sistema!");
+                    MessageBox.Show("Estoque zerado e livro excluído do sistema.");
                 }
-                catch (Exception)
+                catch 
                 {
-                    confirmacaoExclusaoLivro();
+                    acesso.ExcluirQuantidadeLivro(idLivroSelecionado, quantidade);
 
-                    acesso.ExcluirQuantidadeLivro(idLivroSelecionado, qtdExcluir);
-
-                    MessageBox.Show("O estoque foi zerado!\n\n" + "Obs: O livro NÃO foi excluído do cadastro porque existem empréstimos vinculados a ele no histórico.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O estoque foi zerado!\n\n" + "Obs: O livro NÃO foi excluído do cadastro porque existem empréstimos vinculados a ele.", "Aviso de Integridade", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                confirmacaoExclusaoLivro();
-
-                acesso.ExcluirQuantidadeLivro(idLivroSelecionado, qtdExcluir);
+                acesso.ExcluirQuantidadeLivro(idLivroSelecionado, quantidade);
                 MessageBox.Show("Estoque atualizado com sucesso!");
             }
 
             this.DialogResult = DialogResult.OK;
-            this.Close();            
+            this.Close();
         }
 
-        private void confirmacaoExclusaoLivro() 
+        private bool UsuarioConfirmouAcao()
         {
-            DialogResult resposta1 = MessageBox.Show("Tem certeza que deseja excluir?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (resposta1 == DialogResult.No) { return; }
+            var resposta = MessageBox.Show("Tem certeza que deseja remover?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            return resposta == DialogResult.Yes;
+        }
+
+        private void VoltarExclusaoLivro_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }   
 }
