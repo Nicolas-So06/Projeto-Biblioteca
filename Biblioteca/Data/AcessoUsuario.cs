@@ -121,7 +121,6 @@ namespace Biblioteca.Data
                     transacao.Commit();
                 }
                 catch { transacao.Rollback(); throw; }
-
             }
         }
 

@@ -23,8 +23,8 @@ namespace Biblioteca.Forms
 
             if (ValidarCamposObrigatorios()) return;
 
-            string titulo = txtTitulo.Text;
-            string autor = txtAutor.Text;
+            string titulo = txtTitulo.Text.Trim();
+            string autor = txtAutor.Text.Trim();
             int ano = (int)numAno.Value;
             int quantidade = (int)numQuantidade.Value; 
 

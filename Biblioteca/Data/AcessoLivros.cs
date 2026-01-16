@@ -107,6 +107,8 @@ namespace Biblioteca.Data
                         comando.Parameters.AddWithValue("@Id", livro.Id);
 
                         comando.ExecuteNonQuery();
+
+                        transacao.Commit();
                     }
                 }
                 catch { transacao.Rollback(); throw; }

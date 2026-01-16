@@ -35,7 +35,7 @@
             this.numAno = new System.Windows.Forms.NumericUpDown();
             this.txtAutor = new System.Windows.Forms.TextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnEditarLivro = new System.Windows.Forms.Button();
             this.lblAno = new System.Windows.Forms.Label();
             this.lblAutor = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -77,7 +77,7 @@
             this.GroupBox1.Controls.Add(this.numAno);
             this.GroupBox1.Controls.Add(this.txtAutor);
             this.GroupBox1.Controls.Add(this.txtTitulo);
-            this.GroupBox1.Controls.Add(this.btnSalvar);
+            this.GroupBox1.Controls.Add(this.btnEditarLivro);
             this.GroupBox1.Controls.Add(this.lblAno);
             this.GroupBox1.Controls.Add(this.lblAutor);
             this.GroupBox1.Controls.Add(this.lblTitulo);
@@ -127,16 +127,16 @@
             this.txtTitulo.Size = new System.Drawing.Size(692, 22);
             this.txtTitulo.TabIndex = 4;
             // 
-            // btnSalvar
+            // btnEditarLivro
             // 
-            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(593, 135);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(196, 31);
-            this.btnSalvar.TabIndex = 3;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvarLivro_Click);
+            this.btnEditarLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarLivro.Location = new System.Drawing.Point(593, 135);
+            this.btnEditarLivro.Name = "btnEditarLivro";
+            this.btnEditarLivro.Size = new System.Drawing.Size(196, 31);
+            this.btnEditarLivro.TabIndex = 3;
+            this.btnEditarLivro.Text = "Editar";
+            this.btnEditarLivro.UseVisualStyleBackColor = true;
+            this.btnEditarLivro.Click += new System.EventHandler(this.btnEditarLivro_Click);
             // 
             // lblAno
             // 
@@ -226,7 +226,7 @@
         private System.Windows.Forms.Label lblAno;
         private System.Windows.Forms.Label lblAutor;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnEditarLivro;
         private System.Windows.Forms.TextBox txtAutor;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Button btnExcluir;

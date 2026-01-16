@@ -59,11 +59,11 @@ namespace Biblioteca.Forms
             }
 
             Usuario novoUsuario = new Usuario();
-            novoUsuario.Nome = txtNomeUsuario.Text;
-            novoUsuario.CPF = txtCpfUsuario.Text;
-            novoUsuario.Email = txtEmailUsuario.Text;
-            novoUsuario.Telefone = txtTelefoneUsuario.Text;
-            novoUsuario.TipoUsuario = cbTipoUsuario.Text;
+            novoUsuario.Nome = txtNomeUsuario.Text.Trim();
+            novoUsuario.CPF = txtCpfUsuario.Text.Trim();
+            novoUsuario.Email = txtEmailUsuario.Text.Trim();
+            novoUsuario.Telefone = txtTelefoneUsuario.Text.Trim();
+            novoUsuario.TipoUsuario = cbTipoUsuario.Text.Trim();
 
             acesso.CadastrarUsuario(novoUsuario);
 

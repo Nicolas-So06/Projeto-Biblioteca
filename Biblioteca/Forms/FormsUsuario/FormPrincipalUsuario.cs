@@ -87,15 +87,15 @@ namespace Biblioteca.Forms
                 return;
             }
 
-            if (ValidarCamposObrigatorios()) return;
+            if (ValidarCamposObrigatorios()) { return; }
 
             Usuario usuarioEditado = new Usuario();
 
             usuarioEditado.Id = idSelecionado;
-            usuarioEditado.Nome = txtNomeUsuario.Text;
-            usuarioEditado.Email = txtEmailUsuario.Text;
-            usuarioEditado.CPF = txtCpfUsuario.Text;
-            usuarioEditado.Telefone = txtTelefoneUsuario.Text;
+            usuarioEditado.Nome = txtNomeUsuario.Text.Trim();
+            usuarioEditado.Email = txtEmailUsuario.Text.Trim();
+            usuarioEditado.CPF = txtCpfUsuario.Text.Trim();
+            usuarioEditado.Telefone = txtTelefoneUsuario.Text.Trim();
             usuarioEditado.TipoUsuario = cbTipoUsuario.Text;
 
             AcessoUsuario acesso = new AcessoUsuario();

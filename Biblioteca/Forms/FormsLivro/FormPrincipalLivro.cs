@@ -37,7 +37,7 @@ namespace Biblioteca
         }
 
 
-        private void btnSalvarLivro_Click(object sender, EventArgs e)
+        private void btnEditarLivro_Click(object sender, EventArgs e)
         {
             if (idSelecionado == 0)
             {
@@ -51,12 +51,12 @@ namespace Biblioteca
                 return; 
             }
 
-            if (ValidarCamposObrigatorios()) return;
+            if (ValidarCamposObrigatorios()) { return; }
 
             Livro livroEditado = new Livro();
             livroEditado.Id = idSelecionado;
-            livroEditado.Titulo = txtTitulo.Text;
-            livroEditado.Autor = txtAutor.Text;
+            livroEditado.Titulo = txtTitulo.Text.Trim();
+            livroEditado.Autor = txtAutor.Text.Trim();
             livroEditado.AnoPublicacao = (int)numAno.Value;
 
             AcessoLivros acesso = new AcessoLivros();
